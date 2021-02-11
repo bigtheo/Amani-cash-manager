@@ -1,0 +1,49 @@
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\Amani Cash-Manager.exe.config
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\Amani Cash-Manager.exe.manifest
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\Amani Cash-Manager.application
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\Amani Cash-Manager.exe
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\Amani Cash-Manager.pdb
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\itextsharp.dll
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\MySql.Data.dll
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\mysqlbackup.dll
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\Google.Protobuf.dll
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\Renci.SshNet.dll
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\MySql.Data.xml
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\Interop.FOXITREADERLib.dll
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\AxInterop.FOXITREADERLib.dll
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.exe.config
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Interop.FOXITREADERLib.dll
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\AxInterop.FOXITREADERLib.dll
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csproj.ResolveComReference.cache
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmAccueil.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmApercuAvantImpression.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmCreerCompte.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmDepot.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmDevise.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmEmprunt.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmEspaceClient.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmEspaceCompte.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmHistotique.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmJournal.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmJournalGeneral.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmNouveauCompte.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmParametre.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmPret.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmRemboursement.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmRetrait.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmStaistiques.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmTransaction.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.Login.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.Properties.Resources.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csproj.GenerateResource.cache
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csproj.CoreCompileInputs.cache
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.TrustInfo.xml
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.exe.manifest
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.application
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csproj.CopyComplete
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.exe
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.pdb
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmGainClient.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csprojAssemblyReference.cache
