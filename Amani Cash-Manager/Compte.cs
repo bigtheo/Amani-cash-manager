@@ -83,7 +83,7 @@ namespace Amani_Cash_Manager
         }
 
         #endregion les constructeurs de la classe
-
+        
         #region les méthodes pour debiter et crediter le compte
 
         public void Crediter(decimal montant)
@@ -95,7 +95,7 @@ namespace Amani_Cash_Manager
 
                 Bordereau bordereau = new Bordereau()
                 {
-                    DeviseCompte = this.DeviseCompte.ToString(),
+                    DeviseCompte = this.GetDeviseCompte(),
                     TypeCompte = this.GetTypeDuCompte().ToString(),
                     NumeroCompte = this.NumeroDuCompte.ToString(),
                     NumeroTransaction = operation.Id.ToString(),
@@ -129,12 +129,13 @@ namespace Amani_Cash_Manager
 
                     Bordereau bordereau = new Bordereau()
                     {
-                        DeviseCompte = this.DeviseCompte.ToString(),
+                        DeviseCompte = this.GetDeviseCompte(),
                         TypeCompte = GetTypeDuCompte().ToString(),
                         NumeroCompte = this.NumeroDuCompte.ToString(),
                         NumeroTransaction = operation.Id.ToString(),
                         IntituleCompte = this.GetInfoProprietaire(),
                         MontantPrete = montant.ToString(),
+                        
                         Solde = this.Solde.ToString(),
                         Titre = "Bordereau de retrait"
                     };
@@ -256,6 +257,24 @@ namespace Amani_Cash_Manager
                 MySqlParameter p_Id = new MySqlParameter("@Id", MySqlDbType.Int64)
                 {
                     Value = this.NumeroDuCompte
+                };
+                cmd.Parameters.Add(p_Id);
+                if (null != cmd.ExecuteScalar())
+                    return cmd.ExecuteScalar().ToString();
+                return "";
+            }
+        }
+        public string GetDeviseCompte(long numeroCompte)
+        {
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                Connexion.Ouvrir();
+                cmd.Connection = Connexion.Con;
+                cmd.CommandText = "select Devise from compte where Id=@Id";
+
+                MySqlParameter p_Id = new MySqlParameter("@Id", MySqlDbType.Int64)
+                {
+                    Value = numeroCompte
                 };
                 cmd.Parameters.Add(p_Id);
                 if (null != cmd.ExecuteScalar())

@@ -26,7 +26,7 @@ namespace Amani_Cash_Manager
         {
 
             #region Création du document
-
+            
             Rectangle taille = new iTextSharp.text.Rectangle(new Rectangle(297, 720)); // le format(longueur et largueur) du récu
             Document doc = new Document(taille);
             // doc.SetMargins(30, 30, 7, 30);
@@ -82,7 +82,7 @@ namespace Amani_Cash_Manager
             table.AddCell(TypeCompte);
 
             table.AddCell("Montant");
-            table.AddCell(MontantPrete + " " + DeviseCompte);
+            table.AddCell(MontantPrete + " " + this.DeviseCompte);
 
             table.AddCell("Solde");
             table.AddCell(Solde + " " + DeviseCompte);
@@ -91,6 +91,7 @@ namespace Amani_Cash_Manager
 
             #endregion tableau principle
 
+        
             Paragraph paragraphs = new Paragraph("Signature\n-----------------------\n", font)
             {
                 Alignment = Element.ALIGN_CENTER

@@ -105,7 +105,7 @@ namespace Amani_Cash_Manager
                     compte.Debiter(nupMontantAretirer.Value);
                 }
 
-
+                NettoyerChamps();
                 
             }
             this.Cursor = Cursors.Default;

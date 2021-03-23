@@ -82,9 +82,12 @@ namespace Amani_Cash_Manager
             {
                 if (lblTypeDuCompte.Text == TypeCompte.Epargne.ToString())
                 {
-
+                    
                     CompteEpargne compte = new CompteEpargne() { NumeroDuCompte = numeroDuCompte };
+
                     compte.Crediter(nupMontantAdeposer.Value);
+                    Bordereau bordereau = new Bordereau();
+                   
                 }
                 else
                 {

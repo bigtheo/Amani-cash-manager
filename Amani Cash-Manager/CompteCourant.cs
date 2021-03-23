@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Amani_Cash_Manager
 {
-    class CompteCourant : Compte
+  public  class CompteCourant : Compte
     {
-       
+    
     }
 
   
