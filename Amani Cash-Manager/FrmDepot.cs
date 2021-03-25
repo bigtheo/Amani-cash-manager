@@ -86,8 +86,8 @@ namespace Amani_Cash_Manager
                     CompteEpargne compte = new CompteEpargne() { NumeroDuCompte = numeroDuCompte };
 
                     compte.Crediter(nupMontantAdeposer.Value);
-                    Bordereau bordereau = new Bordereau();
-                   
+                    _ = new Bordereau();
+
                 }
                 else
                 {

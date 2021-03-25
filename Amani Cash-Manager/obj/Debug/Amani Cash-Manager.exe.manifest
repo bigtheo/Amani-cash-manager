@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Amani Cash-Manager.exe" size="226792">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Amani Cash-Manager.exe" size="228328">
       <assemblyIdentity name="Amani Cash-Manager" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IJovaaeDuLVSQmniQu04a9gcGhY+/3HdbGKonYckM1k=</dsig:DigestValue>
+        <dsig:DigestValue>BE1CDrLnznfmaQscxfTkYCkmEqXoSNOK5AqwTC3JhHE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

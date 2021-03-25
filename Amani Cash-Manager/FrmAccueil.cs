@@ -15,6 +15,7 @@ namespace Amani_Cash_Manager
         public FrmAccueil()
         {
             InitializeComponent();
+            OuvrirFormulaire(new FrmStaistiques());
         }
 
         #region Menu principal
