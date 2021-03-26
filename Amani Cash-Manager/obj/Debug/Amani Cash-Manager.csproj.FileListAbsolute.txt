@@ -13,6 +13,7 @@ C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\Ren
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\MySql.Data.xml
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\Interop.FOXITREADERLib.dll
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\AxInterop.FOXITREADERLib.dll
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csprojAssemblyReference.cache
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.exe.config
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Interop.FOXITREADERLib.dll
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\AxInterop.FOXITREADERLib.dll
@@ -25,6 +26,7 @@ C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Ama
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmEmprunt.resources
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmEspaceClient.resources
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmEspaceCompte.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmGainClient.resources
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmHistotique.resources
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmJournal.resources
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmJournalGeneral.resources
@@ -45,5 +47,3 @@ C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Ama
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csproj.CopyComplete
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.exe
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.pdb
-C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmGainClient.resources
-C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csprojAssemblyReference.cache
