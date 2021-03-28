@@ -171,5 +171,15 @@ namespace Amani_Cash_Manager
             AppliquerCouleurParDefautPanel(panelClient);
             OuvrirFormulaire(new FrmGainClient());
         }
+
+        private void PanelLogo_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void PanelLogo_MouseClick(object sender, MouseEventArgs e)
+        {
+            OuvrirFormulaire(new FrmStaistiques());
+        }
     }
 }

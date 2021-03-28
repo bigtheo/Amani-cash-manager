@@ -44,6 +44,7 @@ namespace Amani_Cash_Manager
             }
         }
 
+        #region Nombre des comptes
         private long NombreTotalCompteCDF()
         {
             try
@@ -91,7 +92,10 @@ namespace Amani_Cash_Manager
                 MessageBox.Show(ex.Message);
                 return 0;
             }
-        }
+        } 
+        #endregion
+
+        #region Nombre des transactions
         private long NombreTotalCompteCourant()
         {
             try
@@ -187,8 +191,12 @@ namespace Amani_Cash_Manager
                 MessageBox.Show(ex.Message);
                 return 0;
             }
-        }
-        private Decimal TotalMontantCreditCDF()
+        } 
+        #endregion
+
+        #region Total credit et debit
+
+        private decimal TotalMontantCreditCDF()
         {
             try
             {
@@ -283,8 +291,10 @@ namespace Amani_Cash_Manager
                 MessageBox.Show(ex.Message);
                 return 0;
             }
-        }
+        } 
+        #endregion
 
+        #region Solde Total
         private decimal SoldeTotalCDF()
         {
             return TotalMontantCreditCDF() - TotalMontantDebitCDF();
@@ -292,7 +302,119 @@ namespace Amani_Cash_Manager
         private decimal SoldeTotalUSD()
         {
             return TotalMontantCreditUSD() - TotalMontantDebitUSD();
+        } 
+        #endregion
+
+
+        private decimal TotalApayerCDF()
+        {
+            try
+            {
+
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    Connexion.Ouvrir();
+                    cmd.CommandText = "select sum(montant) + Sum(montant)*avg(taux)/100 as 'Total CDF' from pret where devise='cdf'";
+                    cmd.Connection = Connexion.Con;
+                    if (decimal.TryParse(cmd.ExecuteScalar().ToString(), out decimal montant))
+                    {
+                        return montant;
+                    }
+
+                }
+                return 0;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
         }
+        private decimal TotalApayerUSD()
+        {
+            try
+            {
+
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    Connexion.Ouvrir();
+                    cmd.CommandText = "select sum(montant) + Sum(montant)*avg(taux)/100 as 'Total CDF' from pret where devise='usd'";
+                    cmd.Connection = Connexion.Con;
+                    if (decimal.TryParse(cmd.ExecuteScalar().ToString(), out decimal montant))
+                    {
+                        return montant;
+                    }
+
+                }
+                return 0;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+        }
+
+        private decimal TotalRembourseCDF()
+        {
+            try
+            {
+
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    Connexion.Ouvrir();
+                    cmd.CommandText = "select sum(montant) from remboursement where id in(select id from pret where devise='CDF')";
+                    cmd.Connection = Connexion.Con;
+                    if (decimal.TryParse(cmd.ExecuteScalar().ToString(), out decimal montant))
+                    {
+                        return montant;
+                    }
+
+                }
+                return 0;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+        }
+        private decimal TotalRembourseUSD()
+        {
+            try
+            {
+
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    Connexion.Ouvrir();
+                    cmd.CommandText = "select sum(montant) from remboursement where id in(select id from pret where devise='usd')";
+                    cmd.Connection = Connexion.Con;
+                    if (decimal.TryParse(cmd.ExecuteScalar().ToString(), out decimal montant))
+                    {
+                        return montant;
+                    }
+
+                }
+                return 0;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+        }
+
+
+        private decimal TotalResteApayerCDF()
+        {
+            return TotalApayerCDF() - TotalRembourseCDF();
+        }
+        private decimal TotalResteApayerUSD()
+        {
+            return TotalApayerUSD() - TotalRembourseUSD();
+        }
+
+
         #endregion
 
         private void FrmStaistiques_Load(object sender, EventArgs e)
@@ -306,6 +428,9 @@ namespace Amani_Cash_Manager
             lbl_total_debit.Text = NombreTotalTransctionDebit().ToString();
             lbl_Solde_cdf.Text = SoldeTotalCDF().ToString();
             lbl_Solde_usd.Text = SoldeTotalUSD().ToString();
+           
+            lbl_reste_a_payercdf.Text = TotalResteApayerCDF().ToString();
+            lbl_reste_a_payerusd.Text = TotalResteApayerUSD().ToString();
         }
     }
 }

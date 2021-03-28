@@ -47,7 +47,7 @@ namespace Amani_Cash_Manager
             };
 
             client.Enregistrer();
-
+           
             //
             if (lblTypeCompte.Text == TypeCompte.Courant.ToString())
             {
