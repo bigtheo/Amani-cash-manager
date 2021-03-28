@@ -98,36 +98,42 @@ namespace Amani_Cash_Manager
                 {
                     DataTable table = new DataTable();
                     adapter.Fill(table);
+                    AjouterLigneTotal(table);
                     dgvListe.DataSource = table;
                 }
-                AjouterLigneTotal();
+                
             }
         }
 
-        private void AjouterLigneTotal()
+        private void AjouterLigneTotal(DataTable dataTable)
         {
             if (GetTypeJournal() == TypeJournal.Depot)
             {
-             
+
+                dataTable.Rows.Add(null, null, null, null, "Total CDF", TotalDepotJournalierCDF()+" CDF");
+                dataTable.Rows.Add(null, null, null, null, "Total USD", TotalDepotJournalierUSD() + " USD");
             }
 
             if (GetTypeJournal() == TypeJournal.Retrait)
             {
-
+                dataTable.Rows.Add(null, null, null, null, "Total CDF", TotalRetraitJournalierCDF() + " CDF");
+                dataTable.Rows.Add(null, null, null, null, "Total USD", TotalRetraitJournalierUSD() + " USD");
             }
 
             if (GetTypeJournal() == TypeJournal.Pret)
             {
+                dataTable.Rows.Add(null, null, null, null, "Total CDF", TotalPretsJournalierCDF() + " CDF");
+                dataTable.Rows.Add(null, null, null, null, "Total USD", TotalPretsJournalierUSD() + " USD");
 
             }
             if (GetTypeJournal() == TypeJournal.Remboursement)
             {
+                dataTable.Rows.Add(null, null, null, null, "Total CDF", RemboursementJournalierCDF() + " CDF");
+                dataTable.Rows.Add(null, null, null, null, "Total USD", RemboursementJournalierUSD() + " USD");
 
             }
 
-        }
-
-       
+        }      
 
         private void Dtp_Date_ValueChanged(object sender, EventArgs e)
         {
