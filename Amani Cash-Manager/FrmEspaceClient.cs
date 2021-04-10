@@ -52,7 +52,7 @@ namespace Amani_Cash_Manager
         }
 
         //appel de la methode affichage
-        private void txtNomsClient_TextChanged(object sender, EventArgs e)
+        private void TxtNomsClient_TextChanged(object sender, EventArgs e)
         {
             AfficherListeClientParNoms();
         }
@@ -60,6 +60,16 @@ namespace Amani_Cash_Manager
         private void BtnImprimer_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvListe_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            new FrmModifierInformationClient().ShowDialog();
+        }
+
+        private void DgvListe_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            new FrmModifierInformationClient().ShowDialog();
         }
     }
 }

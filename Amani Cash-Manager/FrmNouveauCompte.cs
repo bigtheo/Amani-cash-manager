@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AForge.Video;
+using AForge.Video.DirectShow;
+using System;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -6,6 +10,38 @@ namespace Amani_Cash_Manager
 {
     public partial class FrmNouveauCompte : Form
     {
+        #region Les propriétes
+
+        private FilterInfoCollection filterInfoCollection;
+        private VideoCaptureDevice videoCapture;
+
+        #endregion Les propriétes
+
+        #region Chargement des cameras
+
+        private void ChargerCameras()
+        {
+            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo filter in filterInfoCollection)
+            {
+                cbxWebCam.Items.Add(filter.Name);
+                cbxWebCam.SelectedIndex = 0;
+                videoCapture = new VideoCaptureDevice();
+            }
+
+            if (cbxWebCam.Items.Count == 0)
+            {
+                cbxWebCam.Items.Add("Aucune Camera");
+                cbxWebCam.SelectedIndex = 0;
+                cbxWebCam.Enabled = false;
+                BtnCapturer.Enabled = false;
+                BtnStartCamera.Enabled = false;
+
+            }
+        }
+
+        #endregion Chargement des cameras
+
         public FrmNouveauCompte()
         {
             InitializeComponent();
@@ -28,6 +64,12 @@ namespace Amani_Cash_Manager
 
         private void BtnFermer_Click(object sender, EventArgs e)
         {
+            
+            if (videoCapture!=null)
+            {
+                videoCapture.Stop();
+                videoCapture.WaitForStop();
+            }
             this.Close();
         }
 
@@ -41,12 +83,11 @@ namespace Amani_Cash_Manager
                 Id = 0,
                 DateNaissance = dtpDateNaissance.Value,
                 Noms = txtNom.Text,
-                Photo = pbxPhoto.Image,
+                Photo = Image.FromFile("photo"),
                 NumeroPiece = txtNumeroCarte.Text
-                
             };
-
             client.Enregistrer();
+
 
             //
             if (lblTypeCompte.Text == TypeCompte.Courant.ToString())
@@ -76,7 +117,10 @@ namespace Amani_Cash_Manager
                 compte.NumeroDuCompte = int.Parse(compte.GetDernierNumeroDeCompte().ToString());
                 compte.Crediter(nupSoldeOuverture.Value);
             }
-           
+
+
+
+
             NettoyerChamps();
             this.Cursor = Cursors.Default;
         }
@@ -87,7 +131,10 @@ namespace Amani_Cash_Manager
             txtNumeroCarte.Clear();
             txtAdresseClient.Clear();
             nupSoldeOuverture.Value = 0;
+            pbxPhoto.Image = default;
         }
+
+        #region capture Photo
 
         private void PbxPhoto_Click(object sender, EventArgs e)
         {
@@ -102,20 +149,69 @@ namespace Amani_Cash_Manager
             };
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                pbxPhoto.Image = System.Drawing.Image.FromFile(openFileDialog1.FileName);
+                pbxPhoto.Image = Image.FromFile(openFileDialog1.FileName);
                 pbxPhoto.Text = openFileDialog1.FileName;
             }
         }
 
         #region au region du formualaire
+
         private void CustomizerInformation()
         {
             lblDevise.Text = FrmDevise.DeviseDuCompte.ToString();
             lblTypeCompte.Text = FrmCreerCompte.TypeDuCompte.ToString();
         }
-        #endregion
-    }
 
+        #endregion au region du formualaire
+
+        private void FrmNouveauCompte_Load(object sender, EventArgs e)
+        {
+            ChargerCameras();
+        }
+
+        private void BtnCapturer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                videoCapture.SignalToStop();
+                videoCapture.Stop();
+                videoCapture.WaitForStop();
+
+                Photo.SaveInFile(pbxPhoto);
+                BtnEnregistrer.Enabled = true;
+                BtnCapturer.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                videoCapture.Stop();
+            }
+        }
+
+        private void VideoCapture_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            pbxPhoto.Image = (Bitmap)eventArgs.Frame.Clone();
+        }
+
+        private void BtnStartCamera_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                videoCapture = new VideoCaptureDevice(filterInfoCollection[cbxWebCam.SelectedIndex].MonikerString);
+                videoCapture.NewFrame += VideoCapture_NewFrame;
+                videoCapture.Start();
+
+                BtnCapturer.Enabled = true;
+                BtnEnregistrer.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #endregion capture Photo
+    }
 
     public enum Devise
     {

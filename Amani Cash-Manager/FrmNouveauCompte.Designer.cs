@@ -42,6 +42,9 @@
             this.lblDevise = new System.Windows.Forms.Label();
             this.lblTypeCompte = new System.Windows.Forms.Label();
             this.nupSoldeOuverture = new System.Windows.Forms.NumericUpDown();
+            this.cbxWebCam = new System.Windows.Forms.ComboBox();
+            this.BtnCapturer = new System.Windows.Forms.Button();
+            this.BtnStartCamera = new System.Windows.Forms.Button();
             this.txtNumeroCarte = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
             this.txtAdresseClient = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
             this.txtNom = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
@@ -90,10 +93,10 @@
             // pbxPhoto
             // 
             this.pbxPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbxPhoto.Location = new System.Drawing.Point(32, 110);
+            this.pbxPhoto.Location = new System.Drawing.Point(32, 118);
             this.pbxPhoto.Name = "pbxPhoto";
-            this.pbxPhoto.Size = new System.Drawing.Size(204, 304);
-            this.pbxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxPhoto.Size = new System.Drawing.Size(204, 214);
+            this.pbxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxPhoto.TabIndex = 7;
             this.pbxPhoto.TabStop = false;
             this.pbxPhoto.Click += new System.EventHandler(this.PbxPhoto_Click);
@@ -207,6 +210,36 @@
             this.nupSoldeOuverture.TabIndex = 17;
             this.nupSoldeOuverture.ThousandsSeparator = true;
             // 
+            // cbxWebCam
+            // 
+            this.cbxWebCam.FormattingEnabled = true;
+            this.cbxWebCam.Location = new System.Drawing.Point(32, 82);
+            this.cbxWebCam.Name = "cbxWebCam";
+            this.cbxWebCam.Size = new System.Drawing.Size(204, 22);
+            this.cbxWebCam.TabIndex = 18;
+            // 
+            // BtnCapturer
+            // 
+            this.BtnCapturer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCapturer.Location = new System.Drawing.Point(32, 384);
+            this.BtnCapturer.Name = "BtnCapturer";
+            this.BtnCapturer.Size = new System.Drawing.Size(204, 30);
+            this.BtnCapturer.TabIndex = 19;
+            this.BtnCapturer.Text = "Capturer";
+            this.BtnCapturer.UseVisualStyleBackColor = true;
+            this.BtnCapturer.Click += new System.EventHandler(this.BtnCapturer_Click);
+            // 
+            // BtnStartCamera
+            // 
+            this.BtnStartCamera.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnStartCamera.Location = new System.Drawing.Point(32, 348);
+            this.BtnStartCamera.Name = "BtnStartCamera";
+            this.BtnStartCamera.Size = new System.Drawing.Size(204, 30);
+            this.BtnStartCamera.TabIndex = 20;
+            this.BtnStartCamera.Text = "Démarrer WebCam";
+            this.BtnStartCamera.UseVisualStyleBackColor = true;
+            this.BtnStartCamera.Click += new System.EventHandler(this.BtnStartCamera_Click);
+            // 
             // txtNumeroCarte
             // 
             this.txtNumeroCarte.Font = new System.Drawing.Font("Nova Slim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -243,6 +276,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 501);
+            this.Controls.Add(this.BtnStartCamera);
+            this.Controls.Add(this.BtnCapturer);
+            this.Controls.Add(this.cbxWebCam);
             this.Controls.Add(this.nupSoldeOuverture);
             this.Controls.Add(this.lblTypeCompte);
             this.Controls.Add(this.lblDevise);
@@ -263,6 +299,7 @@
             this.Name = "FrmNouveauCompte";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmNouveauCompte";
+            this.Load += new System.EventHandler(this.FrmNouveauCompte_Load);
             this.panelBarreDeTitre.ResumeLayout(false);
             this.panelBarreDeTitre.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPhoto)).EndInit();
@@ -290,5 +327,8 @@
         private System.Windows.Forms.Label lblDevise;
         private System.Windows.Forms.Label lblTypeCompte;
         private System.Windows.Forms.NumericUpDown nupSoldeOuverture;
+        private System.Windows.Forms.ComboBox cbxWebCam;
+        private System.Windows.Forms.Button BtnCapturer;
+        private System.Windows.Forms.Button BtnStartCamera;
     }
 }
