@@ -30,7 +30,7 @@ namespace Amani_Cash_Manager
         [DllImport("user32.dll")]
         private extern static void SendMessage(IntPtr intPtr,int v1,int v2,int v3);
 
-        private void panelBarreDeTitre_MouseDown(object sender, MouseEventArgs e)
+        private void PanelBarreDeTitre_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
@@ -60,13 +60,7 @@ namespace Amani_Cash_Manager
 
         private void FrmModifierInformationClient_Load(object sender, EventArgs e)
         {
-            if (videoCapture != null)
-            {
-
-                videoCapture.SignalToStop();
-                videoCapture.Stop();
-            }
-            this.Close();
+            ChargerCameras();
         }
         private void Parcour_photos()
         {
@@ -76,23 +70,27 @@ namespace Amani_Cash_Manager
             };
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                pbxPhoto.Image = System.Drawing.Image.FromFile(openFileDialog1.FileName);
+                pbxPhoto.Image = Image.FromFile(openFileDialog1.FileName);
                 pbxPhoto.Text = openFileDialog1.FileName;
             }
         }
-        private void pbxPhoto_Click(object sender, EventArgs e)
+        private void PbxPhoto_Click(object sender, EventArgs e)
         {
             Parcour_photos();
         }
 
-        private void placeholderTextBox1_KeyDown(object sender, KeyEventArgs e)
+        private void PlaceholderTextBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            GetInformationsClient(1200);
+           
         }
 
-        private void GetInformationsClient(long numer_compte)
+        private void GetInformationsClient(long numero_client)
         {
-            throw new NotImplementedException();
+           Client client = new Client(numero_client);
+           txtNom.Text= client.GetName();
+           dtpDateNaissance.Value= client.GetDateNaissance();
+           txtNumeroCarte.Text = client.GetNumeroPiece();
+           pbxPhoto.Image= client.GetPhoto();
         }
 
         private void BtnStartCamera_Click(object sender, EventArgs e)
@@ -129,6 +127,46 @@ namespace Amani_Cash_Manager
             {
                 MessageBox.Show("Aucune camera coonnectée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void Txt_NumeroClient_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+               if(long.TryParse(txt_NumeroClient.Text,out long numerocompte))
+                {
+                    GetInformationsClient(numerocompte);
+                }
+                else
+                {
+                    MessageBox.Show("Format de la chaine entrée est incorrect");
+                }
+            }
+        }
+
+        private void BtnFermer_Click(object sender, EventArgs e)
+        {
+            if (videoCapture != null)
+            {
+
+                videoCapture.SignalToStop();
+                videoCapture.Stop();
+            }
+            this.Close();
+        }
+
+        private void BtnModifier_Click(object sender, EventArgs e)
+        {
+            if(long.TryParse(txt_NumeroClient.ToString(),out long numero_client))
+            {
+                Client client = new Client();
+                client.Modifier(numero_client);
+            }
+            else
+            {
+                MessageBox.Show("Le format de la chaine entrée est incorrect ","Information",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
+            
         }
     }
 }

@@ -45,10 +45,11 @@ C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Ama
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csproj.CopyComplete
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.exe
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.pdb
-C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csprojAssemblyReference.cache
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\AForge.dll
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\AForge.Video.DirectShow.dll
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\AForge.Video.dll
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\AForge.xml
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\AForge.Video.xml
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmModifierInformationClient.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csprojAssemblyReference.cache

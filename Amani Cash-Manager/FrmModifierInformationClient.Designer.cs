@@ -35,7 +35,7 @@
             this.lblDevise = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.BtnEnregistrer = new System.Windows.Forms.Button();
+            this.BtnModifier = new System.Windows.Forms.Button();
             this.txtNumeroCarte = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDateNaissance = new System.Windows.Forms.DateTimePicker();
@@ -45,7 +45,7 @@
             this.panelBarreDeTitre = new System.Windows.Forms.Panel();
             this.BtnFermer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.placeholderTextBox1 = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
+            this.txt_NumeroClient = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPhoto)).BeginInit();
             this.panelBarreDeTitre.SuspendLayout();
             this.SuspendLayout();
@@ -124,15 +124,16 @@
             this.label3.TabIndex = 29;
             this.label3.Text = "Devise du compte";
             // 
-            // BtnEnregistrer
+            // BtnModifier
             // 
-            this.BtnEnregistrer.Font = new System.Drawing.Font("Nova Slim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEnregistrer.Location = new System.Drawing.Point(354, 372);
-            this.BtnEnregistrer.Name = "BtnEnregistrer";
-            this.BtnEnregistrer.Size = new System.Drawing.Size(152, 30);
-            this.BtnEnregistrer.TabIndex = 26;
-            this.BtnEnregistrer.Text = "Enregistrer";
-            this.BtnEnregistrer.UseVisualStyleBackColor = true;
+            this.BtnModifier.Font = new System.Drawing.Font("Nova Slim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnModifier.Location = new System.Drawing.Point(354, 372);
+            this.BtnModifier.Name = "BtnModifier";
+            this.BtnModifier.Size = new System.Drawing.Size(152, 30);
+            this.BtnModifier.TabIndex = 26;
+            this.BtnModifier.Text = "Enregistrer";
+            this.BtnModifier.UseVisualStyleBackColor = true;
+            this.BtnModifier.Click += new System.EventHandler(this.BtnModifier_Click);
             // 
             // txtNumeroCarte
             // 
@@ -177,7 +178,7 @@
             this.pbxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxPhoto.TabIndex = 27;
             this.pbxPhoto.TabStop = false;
-            this.pbxPhoto.Click += new System.EventHandler(this.pbxPhoto_Click);
+            this.pbxPhoto.Click += new System.EventHandler(this.PbxPhoto_Click);
             // 
             // txtAdresseClient
             // 
@@ -209,7 +210,7 @@
             this.panelBarreDeTitre.Name = "panelBarreDeTitre";
             this.panelBarreDeTitre.Size = new System.Drawing.Size(610, 55);
             this.panelBarreDeTitre.TabIndex = 24;
-            this.panelBarreDeTitre.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBarreDeTitre_MouseDown);
+            this.panelBarreDeTitre.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBarreDeTitre_MouseDown);
             // 
             // BtnFermer
             // 
@@ -223,6 +224,7 @@
             this.BtnFermer.TabIndex = 20;
             this.BtnFermer.Text = "x";
             this.BtnFermer.UseVisualStyleBackColor = true;
+            this.BtnFermer.Click += new System.EventHandler(this.BtnFermer_Click);
             // 
             // label1
             // 
@@ -235,23 +237,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Modifcation des Informations du compte";
             // 
-            // placeholderTextBox1
+            // txt_NumeroClient
             // 
-            this.placeholderTextBox1.Font = new System.Drawing.Font("Nova Slim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholderTextBox1.Location = new System.Drawing.Point(261, 94);
-            this.placeholderTextBox1.Name = "placeholderTextBox1";
-            this.placeholderTextBox1.PlaceholderText = "Veuillez saisir le n° du compte";
-            this.placeholderTextBox1.PlaceholderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.placeholderTextBox1.Size = new System.Drawing.Size(300, 27);
-            this.placeholderTextBox1.TabIndex = 38;
-            this.placeholderTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.placeholderTextBox1_KeyDown);
+            this.txt_NumeroClient.Font = new System.Drawing.Font("Nova Slim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_NumeroClient.Location = new System.Drawing.Point(261, 94);
+            this.txt_NumeroClient.Name = "txt_NumeroClient";
+            this.txt_NumeroClient.PlaceholderText = "Veuillez saisir le n° du compte";
+            this.txt_NumeroClient.PlaceholderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_NumeroClient.Size = new System.Drawing.Size(300, 27);
+            this.txt_NumeroClient.TabIndex = 38;
+            this.txt_NumeroClient.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt_NumeroClient_KeyUp);
             // 
             // FrmModifierInformationClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 491);
-            this.Controls.Add(this.placeholderTextBox1);
+            this.Controls.Add(this.txt_NumeroClient);
             this.Controls.Add(this.BtnStartCamera);
             this.Controls.Add(this.BtnCapturer);
             this.Controls.Add(this.cbxWebCam);
@@ -259,7 +261,7 @@
             this.Controls.Add(this.lblDevise);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.BtnEnregistrer);
+            this.Controls.Add(this.BtnModifier);
             this.Controls.Add(this.txtNumeroCarte);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpDateNaissance);
@@ -269,6 +271,7 @@
             this.Controls.Add(this.panelBarreDeTitre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmModifierInformationClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmModifierInformationClient";
             this.Load += new System.EventHandler(this.FrmModifierInformationClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxPhoto)).EndInit();
@@ -288,7 +291,7 @@
         private System.Windows.Forms.Label lblDevise;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button BtnEnregistrer;
+        private System.Windows.Forms.Button BtnModifier;
         private LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox txtNumeroCarte;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtpDateNaissance;
@@ -298,6 +301,6 @@
         private System.Windows.Forms.Panel panelBarreDeTitre;
         private System.Windows.Forms.Button BtnFermer;
         private System.Windows.Forms.Label label1;
-        private LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox placeholderTextBox1;
+        private LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox txt_NumeroClient;
     }
 }

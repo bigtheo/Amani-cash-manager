@@ -81,7 +81,7 @@ namespace Amani_Cash_Manager
                 
             };
 
-            client.Modifier(10000000);
+            client.Modifier(1000);
            
            
             NettoyerChamps();
