@@ -1,11 +1,40 @@
 ﻿using System;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-
+using AForge.Video;
+using AForge.Video.DirectShow;
 namespace Amani_Cash_Manager
 {
     public partial class FrmNouveauCompte : Form
     {
+        #region Les propriétes
+        FilterInfoCollection filterInfoCollection;
+        VideoCaptureDevice videoCapture;
+        #endregion
+
+        #region Chargement des cameras
+        private void ChargerCameras()
+        {
+
+            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo filter in filterInfoCollection)
+            {
+                cbxWebCam.Items.Add(filter.Name);
+                cbxWebCam.SelectedIndex = 0;
+                videoCapture = new VideoCaptureDevice();
+            }
+
+            if (cbxWebCam.Items.Count == 0)
+            {
+                cbxWebCam.Items.Add("Aucune Camera");
+                cbxWebCam.SelectedIndex = 0;
+                cbxWebCam.Enabled = false;
+                BtnCapturer.Enabled = false;
+                BtnStartCamera.Enabled = false;
+            }
+        }
+        #endregion
         public FrmNouveauCompte()
         {
             InitializeComponent();
@@ -28,6 +57,12 @@ namespace Amani_Cash_Manager
 
         private void BtnFermer_Click(object sender, EventArgs e)
         {
+            if (videoCapture!=null)
+            {
+
+                videoCapture.SignalToStop();
+                videoCapture.Stop();
+            }
             this.Close();
         }
 
@@ -46,36 +81,8 @@ namespace Amani_Cash_Manager
                 
             };
 
-            client.Enregistrer();
+            client.Modifier(10000000);
            
-            //
-            if (lblTypeCompte.Text == TypeCompte.Courant.ToString())
-            {
-                CompteCourant compte = new CompteCourant()
-                {
-                    IdDuProprietaire = client.DernierID(),
-                    DeviseCompte = FrmDevise.DeviseDuCompte,
-                    TypeDuCompte = Compte.TypeCompte.Courant
-                };
-                compte.Creer();
-                //on crédite le compte   
-                compte.NumeroDuCompte = int.Parse(compte.GetDernierNumeroDeCompte().ToString());
-                compte.Crediter(nupSoldeOuverture.Value);
-            }
-            else
-            {
-
-                CompteEpargne compte = new CompteEpargne()
-                {
-                    IdDuProprietaire = client.DernierID(),
-                    DeviseCompte = FrmDevise.DeviseDuCompte,
-                    TypeDuCompte = Compte.TypeCompte.Epargne
-                };
-                compte.Creer();
-                //on crédite le compte   
-                compte.NumeroDuCompte = int.Parse(compte.GetDernierNumeroDeCompte().ToString());
-                compte.Crediter(nupSoldeOuverture.Value);
-            }
            
             NettoyerChamps();
             this.Cursor = Cursors.Default;
@@ -89,6 +96,7 @@ namespace Amani_Cash_Manager
             nupSoldeOuverture.Value = 0;
         }
 
+        #region capture Photo
         private void PbxPhoto_Click(object sender, EventArgs e)
         {
             Parcour_photos();
@@ -112,6 +120,46 @@ namespace Amani_Cash_Manager
         {
             lblDevise.Text = FrmDevise.DeviseDuCompte.ToString();
             lblTypeCompte.Text = FrmCreerCompte.TypeDuCompte.ToString();
+        }
+        #endregion
+
+        
+        private void FrmNouveauCompte_Load(object sender, EventArgs e)
+        {
+            ChargerCameras();
+        }
+
+        private void BtnCapturer_Click(object sender, EventArgs e)
+        {
+
+            videoCapture.SignalToStop();
+            videoCapture.Stop();
+            
+        }
+
+        private void VideoCapture_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            pbxPhoto.Image = (Bitmap)eventArgs.Frame.Clone();
+        }
+
+        private void BtnStartCamera_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (videoCapture == null)
+                {
+                    videoCapture = new VideoCaptureDevice(filterInfoCollection[cbxWebCam.SelectedIndex].MonikerString);
+                    videoCapture.NewFrame += VideoCapture_NewFrame;
+                    videoCapture.Start();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
         }
         #endregion
     }

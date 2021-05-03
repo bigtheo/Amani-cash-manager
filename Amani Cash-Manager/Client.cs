@@ -90,6 +90,11 @@ namespace Amani_Cash_Manager
             }
         }
 
+        internal void Modifier(int v)
+        {
+            throw new NotImplementedException();
+        }
+
         public int DernierID()
         {
             using (MySqlCommand cmd=new MySqlCommand ())
