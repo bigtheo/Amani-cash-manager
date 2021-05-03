@@ -93,10 +93,10 @@
             // pbxPhoto
             // 
             this.pbxPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbxPhoto.Location = new System.Drawing.Point(32, 110);
+            this.pbxPhoto.Location = new System.Drawing.Point(32, 118);
             this.pbxPhoto.Name = "pbxPhoto";
-            this.pbxPhoto.Size = new System.Drawing.Size(204, 304);
-            this.pbxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxPhoto.Size = new System.Drawing.Size(204, 214);
+            this.pbxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxPhoto.TabIndex = 7;
             this.pbxPhoto.TabStop = false;
             this.pbxPhoto.Click += new System.EventHandler(this.PbxPhoto_Click);
@@ -127,6 +127,7 @@
             // 
             // BtnEnregistrer
             // 
+            this.BtnEnregistrer.Enabled = false;
             this.BtnEnregistrer.Font = new System.Drawing.Font("Nova Slim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEnregistrer.Location = new System.Drawing.Point(354, 384);
             this.BtnEnregistrer.Name = "BtnEnregistrer";
@@ -220,8 +221,9 @@
             // 
             // BtnCapturer
             // 
+            this.BtnCapturer.Enabled = false;
             this.BtnCapturer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCapturer.Location = new System.Drawing.Point(32, 456);
+            this.BtnCapturer.Location = new System.Drawing.Point(32, 384);
             this.BtnCapturer.Name = "BtnCapturer";
             this.BtnCapturer.Size = new System.Drawing.Size(204, 30);
             this.BtnCapturer.TabIndex = 19;
@@ -232,7 +234,7 @@
             // BtnStartCamera
             // 
             this.BtnStartCamera.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnStartCamera.Location = new System.Drawing.Point(32, 420);
+            this.BtnStartCamera.Location = new System.Drawing.Point(32, 348);
             this.BtnStartCamera.Name = "BtnStartCamera";
             this.BtnStartCamera.Size = new System.Drawing.Size(204, 30);
             this.BtnStartCamera.TabIndex = 20;

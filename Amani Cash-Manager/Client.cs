@@ -38,7 +38,7 @@ namespace Amani_Cash_Manager
                 if (Photo != null)
                 {
                     MemoryStream memory = new MemoryStream();
-                    Photo.Save(memory, Photo.RawFormat);
+                    Photo.Save(memory, Photo.RawFormat) ;
                     image = memory.ToArray();
                 }
                 else
@@ -55,7 +55,7 @@ namespace Amani_Cash_Manager
                 MySqlParameter p_image = new MySqlParameter("@image", MySqlDbType.LongBlob);
                 MySqlParameter p_nom = new MySqlParameter("@nom", MySqlDbType.VarChar, 50);
                 MySqlParameter p_numeropiece = new MySqlParameter("@numeropiece", MySqlDbType.VarChar, 20);
-                MySqlParameter p_Id = new MySqlParameter("@Id", MySqlDbType.Int32);
+                MySqlParameter p_Id = new MySqlParameter("@Id", MySqlDbType.Int64);
                 MySqlParameter p_date = new MySqlParameter("@dateNaissance", MySqlDbType.Date);
 
                 p_Id.Value = Id;

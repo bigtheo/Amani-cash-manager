@@ -79,14 +79,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Amani Cash-Manager.exe" size="256488">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Amani Cash-Manager.exe" size="257000">
       <assemblyIdentity name="Amani Cash-Manager" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0VLgGvQW0QPbsORZRtKVgs7aVVkIOUipejrzFJmCbyA=</dsig:DigestValue>
+        <dsig:DigestValue>pryWsgw2O/fCPqmE6mndfbeAjVGya6FRCVsePEnYEHM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CPaWlVEj8TJ1gm4Hjufq66yOzYv4LuNn/EelmZKR8k8=</dsig:DigestValue>
+        <dsig:DigestValue>DXPs5n+QGiNsq3ayFPWVA+bC1rcJWV/hvX8OOCEWfw4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -134,7 +134,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>I+oMKUxHh1d3qeKxoBbtrFrxUgOlZnE6Oc/rfkcZp/c=</dsig:DigestValue>
+        <dsig:DigestValue>piApEYW+cC1ntq8iFZtIMRp75mUfbo7cTg6HIphSLnE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

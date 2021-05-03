@@ -122,6 +122,7 @@ namespace Amani_Cash_Manager
             {
                 videoCapture.SignalToStop();
                 videoCapture.Stop();
+                pbx_photo_capture.Image = pbxPhoto.Image;
             }
             else
             {

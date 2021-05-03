@@ -36,18 +36,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnModifier = new System.Windows.Forms.Button();
-            this.txtNumeroCarte = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDateNaissance = new System.Windows.Forms.DateTimePicker();
             this.pbxPhoto = new System.Windows.Forms.PictureBox();
-            this.txtAdresseClient = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
-            this.txtNom = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
             this.panelBarreDeTitre = new System.Windows.Forms.Panel();
             this.BtnFermer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_NumeroClient = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
+            this.txtNumeroCarte = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
+            this.txtAdresseClient = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
+            this.txtNom = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
+            this.pbx_photo_capture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPhoto)).BeginInit();
             this.panelBarreDeTitre.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_photo_capture)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnStartCamera
@@ -135,16 +137,6 @@
             this.BtnModifier.UseVisualStyleBackColor = true;
             this.BtnModifier.Click += new System.EventHandler(this.BtnModifier_Click);
             // 
-            // txtNumeroCarte
-            // 
-            this.txtNumeroCarte.Font = new System.Drawing.Font("Nova Slim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroCarte.Location = new System.Drawing.Point(261, 239);
-            this.txtNumeroCarte.Name = "txtNumeroCarte";
-            this.txtNumeroCarte.PlaceholderText = "N° carte d\'électeur";
-            this.txtNumeroCarte.PlaceholderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtNumeroCarte.Size = new System.Drawing.Size(300, 27);
-            this.txtNumeroCarte.TabIndex = 25;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -174,31 +166,11 @@
             this.pbxPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbxPhoto.Location = new System.Drawing.Point(32, 98);
             this.pbxPhoto.Name = "pbxPhoto";
-            this.pbxPhoto.Size = new System.Drawing.Size(204, 304);
+            this.pbxPhoto.Size = new System.Drawing.Size(204, 168);
             this.pbxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxPhoto.TabIndex = 27;
             this.pbxPhoto.TabStop = false;
             this.pbxPhoto.Click += new System.EventHandler(this.PbxPhoto_Click);
-            // 
-            // txtAdresseClient
-            // 
-            this.txtAdresseClient.Font = new System.Drawing.Font("Nova Slim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdresseClient.Location = new System.Drawing.Point(261, 167);
-            this.txtAdresseClient.Name = "txtAdresseClient";
-            this.txtAdresseClient.PlaceholderText = "Adresse du client";
-            this.txtAdresseClient.PlaceholderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtAdresseClient.Size = new System.Drawing.Size(300, 27);
-            this.txtAdresseClient.TabIndex = 22;
-            // 
-            // txtNom
-            // 
-            this.txtNom.Font = new System.Drawing.Font("Nova Slim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNom.Location = new System.Drawing.Point(261, 127);
-            this.txtNom.Name = "txtNom";
-            this.txtNom.PlaceholderText = "Nom, postnom et prénom";
-            this.txtNom.PlaceholderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtNom.Size = new System.Drawing.Size(300, 27);
-            this.txtNom.TabIndex = 21;
             // 
             // panelBarreDeTitre
             // 
@@ -248,11 +220,52 @@
             this.txt_NumeroClient.TabIndex = 38;
             this.txt_NumeroClient.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt_NumeroClient_KeyUp);
             // 
+            // txtNumeroCarte
+            // 
+            this.txtNumeroCarte.Font = new System.Drawing.Font("Nova Slim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroCarte.Location = new System.Drawing.Point(261, 239);
+            this.txtNumeroCarte.Name = "txtNumeroCarte";
+            this.txtNumeroCarte.PlaceholderText = "N° carte d\'électeur";
+            this.txtNumeroCarte.PlaceholderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtNumeroCarte.Size = new System.Drawing.Size(300, 27);
+            this.txtNumeroCarte.TabIndex = 25;
+            // 
+            // txtAdresseClient
+            // 
+            this.txtAdresseClient.Font = new System.Drawing.Font("Nova Slim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAdresseClient.Location = new System.Drawing.Point(261, 167);
+            this.txtAdresseClient.Name = "txtAdresseClient";
+            this.txtAdresseClient.PlaceholderText = "Adresse du client";
+            this.txtAdresseClient.PlaceholderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtAdresseClient.Size = new System.Drawing.Size(300, 27);
+            this.txtAdresseClient.TabIndex = 22;
+            // 
+            // txtNom
+            // 
+            this.txtNom.Font = new System.Drawing.Font("Nova Slim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNom.Location = new System.Drawing.Point(261, 127);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.PlaceholderText = "Nom, postnom et prénom";
+            this.txtNom.PlaceholderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtNom.Size = new System.Drawing.Size(300, 27);
+            this.txtNom.TabIndex = 21;
+            // 
+            // pbx_photo_capture
+            // 
+            this.pbx_photo_capture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbx_photo_capture.Location = new System.Drawing.Point(32, 272);
+            this.pbx_photo_capture.Name = "pbx_photo_capture";
+            this.pbx_photo_capture.Size = new System.Drawing.Size(204, 130);
+            this.pbx_photo_capture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbx_photo_capture.TabIndex = 39;
+            this.pbx_photo_capture.TabStop = false;
+            // 
             // FrmModifierInformationClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 491);
+            this.Controls.Add(this.pbx_photo_capture);
             this.Controls.Add(this.txt_NumeroClient);
             this.Controls.Add(this.BtnStartCamera);
             this.Controls.Add(this.BtnCapturer);
@@ -277,6 +290,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxPhoto)).EndInit();
             this.panelBarreDeTitre.ResumeLayout(false);
             this.panelBarreDeTitre.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_photo_capture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,5 +316,6 @@
         private System.Windows.Forms.Button BtnFermer;
         private System.Windows.Forms.Label label1;
         private LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox txt_NumeroClient;
+        private System.Windows.Forms.PictureBox pbx_photo_capture;
     }
 }
