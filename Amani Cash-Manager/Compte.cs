@@ -179,7 +179,7 @@ namespace Amani_Cash_Manager
 
         #region les methodes statfiques
 
-        public static Int64 ObtenirDernierID()
+        public static long ObtenirDernierID()
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {

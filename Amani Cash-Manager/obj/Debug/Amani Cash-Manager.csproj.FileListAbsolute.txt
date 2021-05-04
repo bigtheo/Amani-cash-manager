@@ -52,3 +52,4 @@ C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\AFo
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\AForge.Video.xml
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\AForge.Video.DirectShow.xml
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani_Cash_Manager.FrmModifierInformationClient.resources
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csprojAssemblyReference.cache

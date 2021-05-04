@@ -81,8 +81,40 @@ namespace Amani_Cash_Manager
                 Photo = Image.FromFile("photo"),
                 NumeroPiece = txtNumeroCarte.Text
             };
-
             client.Enregistrer();
+
+
+            //
+            if (lblTypeCompte.Text == TypeCompte.Courant.ToString())
+            {
+                CompteCourant compte = new CompteCourant()
+                {
+                    IdDuProprietaire = client.DernierID(),
+                    DeviseCompte = FrmDevise.DeviseDuCompte,
+                    TypeDuCompte = Compte.TypeCompte.Courant
+                };
+                compte.Creer();
+                //on crédite le compte   
+                compte.NumeroDuCompte = int.Parse(compte.GetDernierNumeroDeCompte().ToString());
+                compte.Crediter(nupSoldeOuverture.Value);
+            }
+            else
+            {
+
+                CompteEpargne compte = new CompteEpargne()
+                {
+                    IdDuProprietaire = client.DernierID(),
+                    DeviseCompte = FrmDevise.DeviseDuCompte,
+                    TypeDuCompte = Compte.TypeCompte.Epargne
+                };
+                compte.Creer();
+                //on crédite le compte   
+                compte.NumeroDuCompte = int.Parse(compte.GetDernierNumeroDeCompte().ToString());
+                compte.Crediter(nupSoldeOuverture.Value);
+            }
+
+
+
 
             NettoyerChamps();
             this.Cursor = Cursors.Default;
@@ -94,6 +126,7 @@ namespace Amani_Cash_Manager
             txtNumeroCarte.Clear();
             txtAdresseClient.Clear();
             nupSoldeOuverture.Value = 0;
+            pbxPhoto.Image = default;
         }
 
         #region capture Photo
