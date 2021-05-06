@@ -2,10 +2,13 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Amani_Cash_Manager
 {
+
     public static class Helper
     {
         private static string nomEntite;
@@ -285,4 +288,30 @@ namespace Amani_Cash_Manager
         }
         #endregion
     }
+
+    #region la classe photo
+    public static class Photo
+    {
+        public static void SaveInFile(PictureBox picture)
+        {
+            picture.Image.Save("photo.jpeg", ImageFormat.Jpeg);
+         
+        }
+
+        public static byte[] GetImageDataFromFolder()
+        {
+
+            string fileName = "photo.JPEG";
+            System.Drawing.Image image = System.Drawing.Image.FromFile(fileName);
+            byte[] ImageData;
+            
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, image.RawFormat) ;
+                ImageData= ms.ToArray();
+            }
+            return ImageData;
+        }
+    }
+    #endregion
 }

@@ -133,7 +133,7 @@ namespace Amani_Cash_Manager
             }
         }
 
-        internal DateTime GetDateNaissance()
+        internal string GetDateNaissance()
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -149,9 +149,9 @@ namespace Amani_Cash_Manager
                     cmd.Parameters.Add(p_id);
                     if (cmd.ExecuteScalar() == DBNull.Value)
                     {
-                        return default;
+                       return DateTime.Now.Date.ToString();
                     }
-                    return (DateTime)cmd.ExecuteScalar();
+                    return Convert.ToString(cmd.ExecuteScalar());
                 }
                 catch (MySqlException ex)
                 {

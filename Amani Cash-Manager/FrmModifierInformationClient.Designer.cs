@@ -46,16 +46,14 @@
             this.txtNumeroCarte = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
             this.txtAdresseClient = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
             this.txtNom = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
-            this.pbx_photo_capture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPhoto)).BeginInit();
             this.panelBarreDeTitre.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_photo_capture)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnStartCamera
             // 
             this.BtnStartCamera.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnStartCamera.Location = new System.Drawing.Point(32, 408);
+            this.BtnStartCamera.Location = new System.Drawing.Point(32, 336);
             this.BtnStartCamera.Name = "BtnStartCamera";
             this.BtnStartCamera.Size = new System.Drawing.Size(204, 30);
             this.BtnStartCamera.TabIndex = 37;
@@ -66,7 +64,7 @@
             // BtnCapturer
             // 
             this.BtnCapturer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCapturer.Location = new System.Drawing.Point(32, 444);
+            this.BtnCapturer.Location = new System.Drawing.Point(32, 372);
             this.BtnCapturer.Name = "BtnCapturer";
             this.BtnCapturer.Size = new System.Drawing.Size(204, 30);
             this.BtnCapturer.TabIndex = 36;
@@ -129,7 +127,7 @@
             // BtnModifier
             // 
             this.BtnModifier.Font = new System.Drawing.Font("Nova Slim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnModifier.Location = new System.Drawing.Point(354, 372);
+            this.BtnModifier.Location = new System.Drawing.Point(265, 372);
             this.BtnModifier.Name = "BtnModifier";
             this.BtnModifier.Size = new System.Drawing.Size(152, 30);
             this.BtnModifier.TabIndex = 26;
@@ -166,7 +164,7 @@
             this.pbxPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbxPhoto.Location = new System.Drawing.Point(32, 98);
             this.pbxPhoto.Name = "pbxPhoto";
-            this.pbxPhoto.Size = new System.Drawing.Size(204, 168);
+            this.pbxPhoto.Size = new System.Drawing.Size(204, 232);
             this.pbxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxPhoto.TabIndex = 27;
             this.pbxPhoto.TabStop = false;
@@ -250,22 +248,11 @@
             this.txtNom.Size = new System.Drawing.Size(300, 27);
             this.txtNom.TabIndex = 21;
             // 
-            // pbx_photo_capture
-            // 
-            this.pbx_photo_capture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbx_photo_capture.Location = new System.Drawing.Point(32, 272);
-            this.pbx_photo_capture.Name = "pbx_photo_capture";
-            this.pbx_photo_capture.Size = new System.Drawing.Size(204, 130);
-            this.pbx_photo_capture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbx_photo_capture.TabIndex = 39;
-            this.pbx_photo_capture.TabStop = false;
-            // 
             // FrmModifierInformationClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 491);
-            this.Controls.Add(this.pbx_photo_capture);
+            this.ClientSize = new System.Drawing.Size(610, 448);
             this.Controls.Add(this.txt_NumeroClient);
             this.Controls.Add(this.BtnStartCamera);
             this.Controls.Add(this.BtnCapturer);
@@ -290,7 +277,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxPhoto)).EndInit();
             this.panelBarreDeTitre.ResumeLayout(false);
             this.panelBarreDeTitre.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_photo_capture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,6 +302,5 @@
         private System.Windows.Forms.Button BtnFermer;
         private System.Windows.Forms.Label label1;
         private LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox txt_NumeroClient;
-        private System.Windows.Forms.PictureBox pbx_photo_capture;
     }
 }

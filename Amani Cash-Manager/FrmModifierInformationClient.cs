@@ -1,10 +1,13 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -88,7 +91,8 @@ namespace Amani_Cash_Manager
         {
            Client client = new Client(numero_client);
            txtNom.Text= client.GetName();
-           dtpDateNaissance.Value= client.GetDateNaissance();
+
+           dtpDateNaissance.Text= client.GetDateNaissance();
            txtNumeroCarte.Text = client.GetNumeroPiece();
            pbxPhoto.Image= client.GetPhoto();
         }
@@ -102,6 +106,8 @@ namespace Amani_Cash_Manager
                     videoCapture = new VideoCaptureDevice(filterInfoCollection[cbxWebCam.SelectedIndex].MonikerString);
                     videoCapture.NewFrame += VideoCapture_NewFrame;
                     videoCapture.Start();
+
+                    Photo.SaveInFile(pbxPhoto); //save Image in file
 
                 }
             }
@@ -122,7 +128,7 @@ namespace Amani_Cash_Manager
             {
                 videoCapture.SignalToStop();
                 videoCapture.Stop();
-                pbx_photo_capture.Image = pbxPhoto.Image;
+                pbxPhoto.Image.Save("photomofication.jpeg", ImageFormat.Jpeg);
             }
             else
             {
@@ -158,16 +164,65 @@ namespace Amani_Cash_Manager
 
         private void BtnModifier_Click(object sender, EventArgs e)
         {
-            if(long.TryParse(txt_NumeroClient.ToString(),out long numero_client))
+           
+            using(MySqlCommand cmd=new MySqlCommand())
             {
-                Client client = new Client();
-                client.Modifier(numero_client);
+                Connexion.Ouvrir();
+                cmd.Connection = Connexion.Con;
+                cmd.CommandText = "update client set noms=@noms,numeroPiece=@piece,DateDeNaissance=@date,photo=@photo where id=@id";
+                pbxPhoto.Image= Image.FromFile("photo.jpeg");
+
+              
+                #region les parametres
+                MySqlParameter p_noms = new MySqlParameter("@noms", MySqlDbType.VarChar) 
+                { 
+                    Value=txtNom.Text
+                };
+                MySqlParameter p_piece = new MySqlParameter("@piece", MySqlDbType.VarChar)
+                {
+                    Value = txtNumeroCarte.Text
+                };
+                MySqlParameter p_DateDeNaissance = new MySqlParameter("@date", MySqlDbType.Date)
+                {
+                    Value = dtpDateNaissance.Value
+                };
+                MySqlParameter p_photo = new MySqlParameter("@photo", MySqlDbType.LongBlob)
+                {
+                    Value = Photo.GetImageDataFromFolder()
+                };
+                MySqlParameter p_id = new MySqlParameter("@id", MySqlDbType.Int64)
+                {
+                    Value = Photo.GetImageDataFromFolder()
+                };
+                #endregion
+
+                cmd.Parameters.Add(p_noms);
+                cmd.Parameters.Add(p_id);
+                cmd.Parameters.Add(p_piece);
+                cmd.Parameters.Add(p_photo);
+                cmd.Parameters.Add(p_DateDeNaissance);
+
+                DialogResult result = MessageBox.Show("Voulez vous modifier les informations du client ?","Information",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected == 1)
+                    {
+                        MessageBox.Show("Information mise à jour avec succès !", "information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                
+
             }
-            else
-            {
-                MessageBox.Show("Le format de la chaine entrée est incorrect ","Information",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-            }
-            
+
+           
         }
+     
+
+
+
+
+        
     }
 }

@@ -36,6 +36,7 @@ namespace Amani_Cash_Manager
                 cbxWebCam.Enabled = false;
                 BtnCapturer.Enabled = false;
                 BtnStartCamera.Enabled = false;
+
             }
         }
 
@@ -63,8 +64,12 @@ namespace Amani_Cash_Manager
 
         private void BtnFermer_Click(object sender, EventArgs e)
         {
-            videoCapture.Stop();
-            videoCapture.WaitForStop();
+            
+            if (videoCapture!=null)
+            {
+                videoCapture.Stop();
+                videoCapture.WaitForStop();
+            }
             this.Close();
         }
 
@@ -172,7 +177,7 @@ namespace Amani_Cash_Manager
                 videoCapture.Stop();
                 videoCapture.WaitForStop();
 
-                pbxPhoto.Image.Save("photo.jpeg", ImageFormat.Jpeg);
+                Photo.SaveInFile(pbxPhoto);
                 BtnEnregistrer.Enabled = true;
                 BtnCapturer.Enabled = false;
             }
