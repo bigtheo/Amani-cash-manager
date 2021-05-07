@@ -128,7 +128,7 @@
             // BtnEnregistrer
             // 
             this.BtnEnregistrer.Font = new System.Drawing.Font("Nova Slim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEnregistrer.Location = new System.Drawing.Point(354, 384);
+            this.BtnEnregistrer.Location = new System.Drawing.Point(274, 384);
             this.BtnEnregistrer.Name = "BtnEnregistrer";
             this.BtnEnregistrer.Size = new System.Drawing.Size(152, 30);
             this.BtnEnregistrer.TabIndex = 6;
@@ -220,6 +220,7 @@
             // 
             // BtnCapturer
             // 
+            this.BtnCapturer.Enabled = false;
             this.BtnCapturer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCapturer.Location = new System.Drawing.Point(32, 384);
             this.BtnCapturer.Name = "BtnCapturer";

@@ -98,8 +98,8 @@
             this.dgvListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListe.Size = new System.Drawing.Size(597, 301);
             this.dgvListe.TabIndex = 16;
-            this.dgvListe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListe_CellContentClick);
             this.dgvListe.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListe_CellContentDoubleClick);
+            this.dgvListe.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListe_CellDoubleClick);
             // 
             // panelLogo
             // 
@@ -172,7 +172,7 @@
             this.txtNomsClient.PlaceholderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNomsClient.Size = new System.Drawing.Size(597, 27);
             this.txtNomsClient.TabIndex = 15;
-            this.txtNomsClient.TextChanged += new System.EventHandler(this.TxtNomsClient_TextChanged);
+            this.txtNomsClient.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNomsClient_KeyDown);
             // 
             // FrmEspaceClient
             // 

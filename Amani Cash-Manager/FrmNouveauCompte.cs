@@ -75,17 +75,28 @@ namespace Amani_Cash_Manager
 
         #endregion barre de titre
 
+
         private void BtnEnregistrer_Click(object sender, EventArgs e)
         {
+            if(nupSoldeOuverture.Value<=0)
+            {
+                MessageBox.Show("le solde ne peut pas être 0");
+                return;
+            }
             this.Cursor = Cursors.WaitCursor;
             Client client = new Client
             {
                 Id = 0,
                 DateNaissance = dtpDateNaissance.Value,
                 Noms = txtNom.Text,
-                Photo = Image.FromFile("photo"),
                 NumeroPiece = txtNumeroCarte.Text
             };
+
+
+            if (pbxPhoto.Image != null)
+            {
+                client.Photo = Photo.GetImageDataFromFolder();
+            }
             client.Enregistrer();
 
 
@@ -131,7 +142,8 @@ namespace Amani_Cash_Manager
             txtNumeroCarte.Clear();
             txtAdresseClient.Clear();
             nupSoldeOuverture.Value = 0;
-            pbxPhoto.Image = default;
+          
+
         }
 
         #region capture Photo
@@ -173,11 +185,12 @@ namespace Amani_Cash_Manager
         {
             try
             {
+                
                 videoCapture.SignalToStop();
                 videoCapture.Stop();
                 videoCapture.WaitForStop();
 
-                Photo.SaveInFile(pbxPhoto);
+                Photo.SaveInFile(pbxPhoto.Image);
                 BtnEnregistrer.Enabled = true;
                 BtnCapturer.Enabled = false;
             }
@@ -190,7 +203,7 @@ namespace Amani_Cash_Manager
 
         private void VideoCapture_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            pbxPhoto.Image = (Bitmap)eventArgs.Frame.Clone();
+         pbxPhoto.Image = (Bitmap)eventArgs.Frame.Clone();
         }
 
         private void BtnStartCamera_Click(object sender, EventArgs e)

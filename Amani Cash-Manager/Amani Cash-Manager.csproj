@@ -239,6 +239,7 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Operation.cs" />
+    <Compile Include="Photo.cs" />
     <Compile Include="PlaceHolderTextBox.cs">
       <SubType>Component</SubType>
     </Compile>

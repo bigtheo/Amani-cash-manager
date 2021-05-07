@@ -19,7 +19,6 @@ C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\AFo
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\MySql.Data.xml
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\Interop.FOXITREADERLib.dll
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\bin\Debug\AxInterop.FOXITREADERLib.dll
-C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csprojAssemblyReference.cache
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Interop.FOXITREADERLib.dll
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\AxInterop.FOXITREADERLib.dll
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csproj.ResolveComReference.cache
@@ -53,3 +52,4 @@ C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Ama
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csproj.CopyComplete
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.exe
 C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.pdb
+C:\Users\KAPAPA\source\repos\Amani Cash-Manager\Amani Cash-Manager\obj\Debug\Amani Cash-Manager.csprojAssemblyReference.cache

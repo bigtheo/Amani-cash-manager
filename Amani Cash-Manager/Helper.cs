@@ -89,7 +89,9 @@ namespace Amani_Cash_Manager
                 }
             }
         }
-        
+
+ 
+
         public static DataTable AfficherHistoriqueCompte(long numeroDuCompte)
         {
             using (MySqlCommand cmd = new MySqlCommand())
@@ -148,8 +150,8 @@ namespace Amani_Cash_Manager
         {
             #region la police
 
-            Font police = FontFactory.GetFont("TIMES NEW ROMAN", 16, 1, new BaseColor(31, 50, 64));
-            police.SetStyle(Font.BOLD);
+            iTextSharp.text.Font police = FontFactory.GetFont("TIMES NEW ROMAN", 16, 1, new BaseColor(31, 50, 64));
+            police.SetStyle(iTextSharp.text.Font.BOLD);
 
             #endregion la police
             ChargerInformationDeLentreprise();
@@ -170,7 +172,7 @@ namespace Amani_Cash_Manager
             {
                 Alignment = Element.ALIGN_CENTER
             };
-            Font font = new Font(Font.FontFamily.COURIER, 7,0,BaseColor.MAGENTA);
+            iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.COURIER, 7,0,BaseColor.MAGENTA);
 
             Paragraph P_date_jour = new Paragraph(dateJour, font)
             {
@@ -289,29 +291,5 @@ namespace Amani_Cash_Manager
         #endregion
     }
 
-    #region la classe photo
-    public static class Photo
-    {
-        public static void SaveInFile(PictureBox picture)
-        {
-            picture.Image.Save("photo.jpeg", ImageFormat.Jpeg);
-         
-        }
-
-        public static byte[] GetImageDataFromFolder()
-        {
-
-            string fileName = "photo.JPEG";
-            System.Drawing.Image image = System.Drawing.Image.FromFile(fileName);
-            byte[] ImageData;
-            
-            using (MemoryStream ms = new MemoryStream())
-            {
-                image.Save(ms, image.RawFormat) ;
-                ImageData= ms.ToArray();
-            }
-            return ImageData;
-        }
-    }
-    #endregion
+   
 }

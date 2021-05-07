@@ -2,16 +2,8 @@
 using AForge.Video.DirectShow;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Amani_Cash_Manager
@@ -19,30 +11,37 @@ namespace Amani_Cash_Manager
     public partial class FrmModifierInformationClient : Form
     {
         #region Les propriétes
-        FilterInfoCollection filterInfoCollection;
-        VideoCaptureDevice videoCapture;
-        #endregion
+
+        private FilterInfoCollection filterInfoCollection;
+        private VideoCaptureDevice videoCapture;
+
+        #endregion Les propriétes
 
         public FrmModifierInformationClient()
         {
             InitializeComponent();
+            GetInformationsClient(FrmEspaceClient.ClientId);
+            txt_NumeroClient.Text = FrmEspaceClient.ClientId.ToString();
         }
+
         #region barre de titre
+
         [DllImport("user32.dll")]
         private static extern void ReleaseCapture();
+
         [DllImport("user32.dll")]
-        private extern static void SendMessage(IntPtr intPtr,int v1,int v2,int v3);
+        private extern static void SendMessage(IntPtr intPtr, int v1, int v2, int v3);
 
         private void PanelBarreDeTitre_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-        #endregion
+
+        #endregion barre de titre
 
         private void ChargerCameras()
         {
-
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo filter in filterInfoCollection)
             {
@@ -65,6 +64,7 @@ namespace Amani_Cash_Manager
         {
             ChargerCameras();
         }
+
         private void Parcour_photos()
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog
@@ -77,6 +77,7 @@ namespace Amani_Cash_Manager
                 pbxPhoto.Text = openFileDialog1.FileName;
             }
         }
+
         private void PbxPhoto_Click(object sender, EventArgs e)
         {
             Parcour_photos();
@@ -84,32 +85,28 @@ namespace Amani_Cash_Manager
 
         private void PlaceholderTextBox1_KeyDown(object sender, KeyEventArgs e)
         {
-           
         }
 
         private void GetInformationsClient(long numero_client)
         {
-           Client client = new Client(numero_client);
-           txtNom.Text= client.GetName();
 
-           dtpDateNaissance.Text= client.GetDateNaissance();
-           txtNumeroCarte.Text = client.GetNumeroPiece();
-           pbxPhoto.Image= client.GetPhoto();
+            Client client = new Client(numero_client);
+            txtNom.Text = client.GetName();
+            dtpDateNaissance.Text = client.GetDateNaissance();
+            txtNumeroCarte.Text = client.GetNumeroPiece();
+            pbxPhoto.Image = client.GetPhoto();
         }
 
         private void BtnStartCamera_Click(object sender, EventArgs e)
         {
             try
             {
-                if (videoCapture == null)
-                {
-                    videoCapture = new VideoCaptureDevice(filterInfoCollection[cbxWebCam.SelectedIndex].MonikerString);
-                    videoCapture.NewFrame += VideoCapture_NewFrame;
-                    videoCapture.Start();
+                videoCapture = new VideoCaptureDevice(filterInfoCollection[cbxWebCam.SelectedIndex].MonikerString);
+                videoCapture.NewFrame += VideoCapture_NewFrame;
+                videoCapture.Start();
 
-                    Photo.SaveInFile(pbxPhoto); //save Image in file
-
-                }
+                BtnCapturer.Enabled = true;
+                BtnModifier.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -124,15 +121,20 @@ namespace Amani_Cash_Manager
 
         private void BtnCapturer_Click(object sender, EventArgs e)
         {
-            if (pbxPhoto.Image != null)
+            try
             {
                 videoCapture.SignalToStop();
                 videoCapture.Stop();
-                pbxPhoto.Image.Save("photomofication.jpeg", ImageFormat.Jpeg);
+                videoCapture.WaitForStop();
+
+                Photo.SaveInFile(pbxPhoto.Image);
+                BtnModifier.Enabled = true;
+                BtnCapturer.Enabled = false;
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Aucune camera coonnectée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message);
+                videoCapture.Stop();
             }
         }
 
@@ -140,7 +142,7 @@ namespace Amani_Cash_Manager
         {
             if (e.KeyCode == Keys.Enter)
             {
-               if(long.TryParse(txt_NumeroClient.Text,out long numerocompte))
+                if (long.TryParse(txt_NumeroClient.Text, out long numerocompte))
                 {
                     GetInformationsClient(numerocompte);
                 }
@@ -155,7 +157,6 @@ namespace Amani_Cash_Manager
         {
             if (videoCapture != null)
             {
-
                 videoCapture.SignalToStop();
                 videoCapture.Stop();
             }
@@ -164,65 +165,53 @@ namespace Amani_Cash_Manager
 
         private void BtnModifier_Click(object sender, EventArgs e)
         {
-           
-            using(MySqlCommand cmd=new MySqlCommand())
-            {
-                Connexion.Ouvrir();
-                cmd.Connection = Connexion.Con;
-                cmd.CommandText = "update client set noms=@noms,numeroPiece=@piece,DateDeNaissance=@date,photo=@photo where id=@id";
-                pbxPhoto.Image= Image.FromFile("photo.jpeg");
+            if (long.TryParse(txt_NumeroClient.Text, out long numero_compte))
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    Connexion.Ouvrir();
+                    cmd.Connection = Connexion.Con;
 
-              
-                #region les parametres
-                MySqlParameter p_noms = new MySqlParameter("@noms", MySqlDbType.VarChar) 
-                { 
-                    Value=txtNom.Text
-                };
-                MySqlParameter p_piece = new MySqlParameter("@piece", MySqlDbType.VarChar)
-                {
-                    Value = txtNumeroCarte.Text
-                };
-                MySqlParameter p_DateDeNaissance = new MySqlParameter("@date", MySqlDbType.Date)
-                {
-                    Value = dtpDateNaissance.Value
-                };
-                MySqlParameter p_photo = new MySqlParameter("@photo", MySqlDbType.LongBlob)
-                {
-                    Value = Photo.GetImageDataFromFolder()
-                };
-                MySqlParameter p_id = new MySqlParameter("@id", MySqlDbType.Int64)
-                {
-                    Value = Photo.GetImageDataFromFolder()
-                };
-                #endregion
-
-                cmd.Parameters.Add(p_noms);
-                cmd.Parameters.Add(p_id);
-                cmd.Parameters.Add(p_piece);
-                cmd.Parameters.Add(p_photo);
-                cmd.Parameters.Add(p_DateDeNaissance);
-
-                DialogResult result = MessageBox.Show("Voulez vous modifier les informations du client ?","Information",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected == 1)
+                    cmd.CommandText = "update client set photo=@picture,noms=@noms,DateDeNaissance=@datanaissance,NumeroPiece=@NumeroPiece where id=@id";
+                    MySqlParameter p_id = new MySqlParameter("@id", MySqlDbType.Int64)
                     {
-                        MessageBox.Show("Information mise à jour avec succès !", "information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                        Value = numero_compte
+                    };
+                    MySqlParameter p_noms = new MySqlParameter("@noms", MySqlDbType.VarChar)
+                    {
+                        Value = txtNom.Text
+                    };
+                    MySqlParameter p_image = new MySqlParameter("@picture", MySqlDbType.LongBlob)
+                    {
+                        Value = Photo.GetConvertedImageFromFiles(pbxPhoto.Image)
+                    };
+                    MySqlParameter p_date_naissance = new MySqlParameter("@datanaissance", MySqlDbType.Date)
+                    {
+                        Value = dtpDateNaissance.Value
+                    };
+                    MySqlParameter p_NumeroPiece = new MySqlParameter("@NumeroPiece", MySqlDbType.VarChar)
+                    {
+                        Value = txtNumeroCarte.Text
+                    };
+
+                    cmd.Parameters.Add(p_id);
+                    cmd.Parameters.Add(p_image);
+                    cmd.Parameters.Add(p_noms);
+                    cmd.Parameters.Add(p_date_naissance);
+                    cmd.Parameters.Add(p_NumeroPiece);
+
+
+                    DialogResult result = MessageBox.Show("Voulez-vous vraiment modifier ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                        if (cmd.ExecuteNonQuery() == 1)
+                        {
+                            MessageBox.Show("Modification effectuée avec succès !","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        }
                 }
-                
-
-            }
-
-           
         }
-     
 
+        private void txt_NumeroClient_TextChanged(object sender, EventArgs e)
+        {
 
-
-
-        
+        }
     }
 }

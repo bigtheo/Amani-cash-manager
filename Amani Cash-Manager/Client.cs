@@ -97,9 +97,9 @@ namespace Amani_Cash_Manager
                     Connexion.Ouvrir();
                     cmd.Connection = Connexion.Con;
                     cmd.CommandText = "select NumeroPiece from client where id=@id";
-                    MySqlParameter p_id = new MySqlParameter("@Id", MySqlDbType.VarChar) { Value = this.Id };
+                    MySqlParameter p_id = new MySqlParameter("@Id", MySqlDbType.Int64) { Value = this.Id };
                     cmd.Parameters.Add(p_id);
-                    return (string)cmd.ExecuteScalar();
+                    return Convert.ToString( cmd.ExecuteScalar());
                 }
                 catch (Exception ex)
                 {
@@ -147,10 +147,6 @@ namespace Amani_Cash_Manager
                         Value = this.Id
                     };
                     cmd.Parameters.Add(p_id);
-                    if (cmd.ExecuteScalar() == DBNull.Value)
-                    {
-                       return DateTime.Now.Date.ToString();
-                    }
                     return Convert.ToString(cmd.ExecuteScalar());
                 }
                 catch (MySqlException ex)
@@ -172,7 +168,7 @@ namespace Amani_Cash_Manager
                     cmd.CommandText = "select noms from client where id=@id";
                     MySqlParameter p_id = new MySqlParameter("@Id", MySqlDbType.VarChar) { Value = this.Id };
                     cmd.Parameters.Add(p_id);
-                    return (string)cmd.ExecuteScalar();
+                    return Convert.ToString( cmd.ExecuteScalar());
                 }
                 catch (Exception ex)
                 {
