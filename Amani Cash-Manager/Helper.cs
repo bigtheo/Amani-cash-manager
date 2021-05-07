@@ -2,10 +2,13 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Amani_Cash_Manager
 {
+
     public static class Helper
     {
         private static string nomEntite;
@@ -86,7 +89,9 @@ namespace Amani_Cash_Manager
                 }
             }
         }
-        
+
+ 
+
         public static DataTable AfficherHistoriqueCompte(long numeroDuCompte)
         {
             using (MySqlCommand cmd = new MySqlCommand())
@@ -145,8 +150,8 @@ namespace Amani_Cash_Manager
         {
             #region la police
 
-            Font police = FontFactory.GetFont("TIMES NEW ROMAN", 16, 1, new BaseColor(31, 50, 64));
-            police.SetStyle(Font.BOLD);
+            iTextSharp.text.Font police = FontFactory.GetFont("TIMES NEW ROMAN", 16, 1, new BaseColor(31, 50, 64));
+            police.SetStyle(iTextSharp.text.Font.BOLD);
 
             #endregion la police
             ChargerInformationDeLentreprise();
@@ -167,7 +172,7 @@ namespace Amani_Cash_Manager
             {
                 Alignment = Element.ALIGN_CENTER
             };
-            Font font = new Font(Font.FontFamily.COURIER, 7,0,BaseColor.MAGENTA);
+            iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.COURIER, 7,0,BaseColor.MAGENTA);
 
             Paragraph P_date_jour = new Paragraph(dateJour, font)
             {
@@ -285,4 +290,6 @@ namespace Amani_Cash_Manager
         }
         #endregion
     }
+
+   
 }

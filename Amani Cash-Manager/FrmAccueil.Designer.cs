@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAccueil));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panelGainClient = new System.Windows.Forms.Panel();
+            this.BtnGainClient = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panelClient = new System.Windows.Forms.Panel();
             this.BtnEspaceClient = new System.Windows.Forms.Button();
@@ -54,10 +57,8 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelConteneur = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panelGainClient = new System.Windows.Forms.Panel();
-            this.BtnGainClient = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -66,7 +67,6 @@
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelLogo.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -87,6 +87,41 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(202, 503);
             this.panelMenu.TabIndex = 0;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.panelGainClient);
+            this.panel8.Controls.Add(this.BtnGainClient);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 387);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(202, 54);
+            this.panel8.TabIndex = 7;
+            // 
+            // panelGainClient
+            // 
+            this.panelGainClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.panelGainClient.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelGainClient.Location = new System.Drawing.Point(0, 0);
+            this.panelGainClient.Name = "panelGainClient";
+            this.panelGainClient.Size = new System.Drawing.Size(4, 54);
+            this.panelGainClient.TabIndex = 3;
+            // 
+            // BtnGainClient
+            // 
+            this.BtnGainClient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnGainClient.FlatAppearance.BorderSize = 0;
+            this.BtnGainClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGainClient.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGainClient.Image = ((System.Drawing.Image)(resources.GetObject("BtnGainClient.Image")));
+            this.BtnGainClient.Location = new System.Drawing.Point(0, 0);
+            this.BtnGainClient.Name = "BtnGainClient";
+            this.BtnGainClient.Size = new System.Drawing.Size(202, 54);
+            this.BtnGainClient.TabIndex = 2;
+            this.BtnGainClient.Text = "Gains Clients";
+            this.BtnGainClient.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnGainClient.UseVisualStyleBackColor = true;
+            this.BtnGainClient.Click += new System.EventHandler(this.BtnGainClient_Click);
             // 
             // panel4
             // 
@@ -342,6 +377,8 @@
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(202, 63);
             this.panelLogo.TabIndex = 0;
+            this.panelLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelLogo_Paint);
+            this.panelLogo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PanelLogo_MouseClick);
             // 
             // label1
             // 
@@ -363,41 +400,6 @@
             this.panelConteneur.Size = new System.Drawing.Size(606, 503);
             this.panelConteneur.TabIndex = 1;
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.panelGainClient);
-            this.panel8.Controls.Add(this.BtnGainClient);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 387);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(202, 54);
-            this.panel8.TabIndex = 7;
-            // 
-            // panelGainClient
-            // 
-            this.panelGainClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.panelGainClient.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelGainClient.Location = new System.Drawing.Point(0, 0);
-            this.panelGainClient.Name = "panelGainClient";
-            this.panelGainClient.Size = new System.Drawing.Size(4, 54);
-            this.panelGainClient.TabIndex = 3;
-            // 
-            // BtnGainClient
-            // 
-            this.BtnGainClient.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnGainClient.FlatAppearance.BorderSize = 0;
-            this.BtnGainClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnGainClient.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGainClient.Image = ((System.Drawing.Image)(resources.GetObject("BtnGainClient.Image")));
-            this.BtnGainClient.Location = new System.Drawing.Point(0, 0);
-            this.BtnGainClient.Name = "BtnGainClient";
-            this.BtnGainClient.Size = new System.Drawing.Size(202, 54);
-            this.BtnGainClient.TabIndex = 2;
-            this.BtnGainClient.Text = "Gains Clients";
-            this.BtnGainClient.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnGainClient.UseVisualStyleBackColor = true;
-            this.BtnGainClient.Click += new System.EventHandler(this.BtnGainClient_Click);
-            // 
             // FrmAccueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,6 +414,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAccueil_FormClosing);
             this.panelMenu.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -421,7 +424,6 @@
             this.panel1.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
-            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

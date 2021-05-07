@@ -43,4 +43,12 @@ namespace Amani_Cash_Manager
             new FrmJournalGeneral().ShowDialog();
         }
     }
+    public enum TypeJournal
+    {
+        Retrait,
+        Depot,
+        Pret,
+        Remboursement
+    }
+
 }

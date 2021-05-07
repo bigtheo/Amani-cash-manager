@@ -7,14 +7,14 @@
     <framework targetVersion="4.6" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Amani Cash-Manager.exe.manifest" size="11312">
+    <dependentAssembly dependencyType="install" codebase="Amani Cash-Manager.exe.manifest" size="13350">
       <assemblyIdentity name="Amani Cash-Manager.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>70SBipZbO7uLW0oz91JoQC7suNtSWI32yR72xTkWR5o=</dsig:DigestValue>
+        <dsig:DigestValue>fj6pbCzwwl1dcBEk+chlzL/yehnzUuTxN+FTgvz/Ma4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

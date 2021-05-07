@@ -13,6 +13,8 @@ namespace Amani_Cash_Manager
 {
     public partial class FrmEspaceClient : Form
     {
+        public static long ClientId { get; internal set; }
+
         public FrmEspaceClient()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace Amani_Cash_Manager
                 {
                     Connexion.Ouvrir();
                     cmd.Connection = Connexion.Con;
-                    cmd.CommandText = "select cl.Id As 'N° de compte',UPPER(cl.noms) as 'Noms',cl.NumeroPiece as 'N° pièce Identité'," +
+                    cmd.CommandText = "select cl.Id As 'N° de Client',cpte.id as 'N° Compte',UPPER(cl.noms) as 'Noms',cl.NumeroPiece as 'N° pièce Identité'," +
                         "cpte.TypeCompte as 'Type du Compte',cpte.Devise,cpte.DateCreation 'Date de création' " +
                         "from client as cl " +
                         $"INNER JOIN compte as cpte ON cl.id = cpte.ClientId where cl.noms like '%{txtNomsClient.Text}%'";
@@ -52,13 +54,37 @@ namespace Amani_Cash_Manager
         }
 
         //appel de la methode affichage
-        private void txtNomsClient_TextChanged(object sender, EventArgs e)
+        private void TxtNomsClient_TextChanged(object sender, EventArgs e)
         {
-            AfficherListeClientParNoms();
+           
         }
 
         private void BtnImprimer_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void dgvListe_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            new FrmModifierInformationClient().ShowDialog();
+        }
+
+        private void DgvListe_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void txtNomsClient_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                AfficherListeClientParNoms();
+            }
+        }
+
+        private void dgvListe_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ClientId =Convert.ToInt64( dgvListe.CurrentRow.Cells[0].Value);
+            new FrmModifierInformationClient().ShowDialog();
 
         }
     }
