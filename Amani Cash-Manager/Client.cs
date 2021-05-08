@@ -133,6 +133,30 @@ namespace Amani_Cash_Manager
             }
         }
 
+        internal Image GetPhotoByNumeroCompte(long numeroCompte)
+        {
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                try
+                {
+                    Connexion.Ouvrir();
+                    cmd.Connection = Connexion.Con;
+                    cmd.CommandText = "select c.photo from client as c INNER JOIN compte as cpte on cpte.clientId=c.id where Cpte.id=@id";
+                    MySqlParameter p_id = new MySqlParameter("@Id", MySqlDbType.Int64) { Value = numeroCompte };
+                    cmd.Parameters.Add(p_id);
+                    byte[] byte_image = (byte[])cmd.ExecuteScalar();
+                    using (MemoryStream memoryStream = new MemoryStream(byte_image))
+                    {
+                        return Image.FromStream(memoryStream);
+                    }
+                }
+                catch (Exception)
+                {
+                    return default;
+                }
+            }
+        }
+
         internal string GetDateNaissance()
         {
             using (MySqlCommand cmd = new MySqlCommand())

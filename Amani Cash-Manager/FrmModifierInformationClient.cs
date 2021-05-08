@@ -95,6 +95,7 @@ namespace Amani_Cash_Manager
             dtpDateNaissance.Text = client.GetDateNaissance();
             txtNumeroCarte.Text = client.GetNumeroPiece();
             pbxPhoto.Image = client.GetPhoto();
+            
         }
 
         private void BtnStartCamera_Click(object sender, EventArgs e)

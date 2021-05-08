@@ -85,6 +85,18 @@ namespace Amani_Cash_Manager
         private void TxtNumeroDuCompte_TextChanged(object sender, EventArgs e)
         {
             TrouverInfoClient();
+            Getphoto();
+        }
+
+
+        private void Getphoto()
+        {
+            if (long.TryParse(txtNumeroDuCompte.Text, out long numero_compte))
+            {
+                Client client = new Client();
+                pictureBox1.Image = client.GetPhotoByNumeroCompte(numero_compte);
+            }
+
         }
         #endregion
 
