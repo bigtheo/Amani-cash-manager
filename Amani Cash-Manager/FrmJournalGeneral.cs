@@ -7,8 +7,6 @@ namespace Amani_Cash_Manager
 {
     public partial class FrmJournalGeneral : Form
     {
-       
-
         public FrmJournalGeneral()
         {
             InitializeComponent();
@@ -101,7 +99,6 @@ namespace Amani_Cash_Manager
                     AjouterLigneTotal(table);
                     dgvListe.DataSource = table;
                 }
-                
             }
         }
 
@@ -109,8 +106,7 @@ namespace Amani_Cash_Manager
         {
             if (GetTypeJournal() == TypeJournal.Depot)
             {
-
-                dataTable.Rows.Add(null, null, null, null, "Total CDF", TotalDepotJournalierCDF()+" CDF");
+                dataTable.Rows.Add(null, null, null, null, "Total CDF", TotalDepotJournalierCDF() + " CDF");
                 dataTable.Rows.Add(null, null, null, null, "Total USD", TotalDepotJournalierUSD() + " USD");
             }
 
@@ -124,16 +120,13 @@ namespace Amani_Cash_Manager
             {
                 dataTable.Rows.Add(null, null, null, null, "Total CDF", TotalPretsJournalierCDF() + " CDF");
                 dataTable.Rows.Add(null, null, null, null, "Total USD", TotalPretsJournalierUSD() + " USD");
-
             }
             if (GetTypeJournal() == TypeJournal.Remboursement)
             {
                 dataTable.Rows.Add(null, null, null, null, "Total CDF", RemboursementJournalierCDF() + " CDF");
                 dataTable.Rows.Add(null, null, null, null, "Total USD", RemboursementJournalierUSD() + " USD");
-
             }
-
-        }      
+        }
 
         private void Dtp_Date_ValueChanged(object sender, EventArgs e)
         {
@@ -150,6 +143,76 @@ namespace Amani_Cash_Manager
             bordereau.CreerListe(dgvListe);
             this.Cursor = Cursors.Default;
         }
+
+        #region Suppression de l'opération
+
+        //suppresion des transactions -debit et crétit.
+        private void SupprimerTransaction(long numeroOperaration)
+        {
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                Connexion.Ouvrir();
+                cmd.Connection = Connexion.Con;
+                cmd.CommandText = "Delete from operation where id=@id";
+                MySqlParameter p_id = new MySqlParameter("@id", MySqlDbType.Int64)
+                {
+                    Value = numeroOperaration
+                };
+                cmd.Parameters.Add(p_id);
+                DialogResult result = MessageBox.Show($"Voulez-vous vraiment supprimer la Transaction N° :{numeroOperaration} ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    int AffectedRows = cmd.ExecuteNonQuery();
+                    MessageBox.Show($"Transaction supprimée avec succès\n{AffectedRows} Ligne(s) affectée(s).", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        //suppression du remboursement
+        private void SupprimerRemboursement(long numeroRemboursement)
+        {
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                Connexion.Ouvrir();
+                cmd.Connection = Connexion.Con;
+                cmd.CommandText = "Delete from Remboursement where id=@id";
+                MySqlParameter p_id = new MySqlParameter("@id", MySqlDbType.Int64)
+                {
+                    Value = numeroRemboursement
+                };
+                cmd.Parameters.Add(p_id);
+                DialogResult result = MessageBox.Show($"Voulez-vous vraiment supprimer le Remboursement N° :{numeroRemboursement} ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    int AffectedRows = cmd.ExecuteNonQuery();
+                    MessageBox.Show($"Remboursement supprimé avec succès\n{AffectedRows} Ligne(s) affectée(s).", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        //suppression du prêt
+        private void SupprimerPret(long numeroPret)
+        {
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                Connexion.Ouvrir();
+                cmd.Connection = Connexion.Con;
+                cmd.CommandText = "Delete from pret where id=@id";
+                MySqlParameter p_id = new MySqlParameter("@id", MySqlDbType.Int64)
+                {
+                    Value = numeroPret
+                };
+                cmd.Parameters.Add(p_id);
+                DialogResult result = MessageBox.Show($"Voulez-vous vraiment supprimer le prêt N° :{numeroPret} ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    int AffectedRows = cmd.ExecuteNonQuery();
+                    MessageBox.Show($"Prêt supprimé avec succès\n{AffectedRows} Ligne(s) affectée(s)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        #endregion Suppression de l'opération
 
         #region Total journalier
 
@@ -180,6 +243,7 @@ namespace Amani_Cash_Manager
                 return 0;
             }
         }
+
         private decimal TotalDepotJournalierUSD()
         {
             try
@@ -236,6 +300,7 @@ namespace Amani_Cash_Manager
                 return 0;
             }
         }
+
         private decimal TotalRetraitJournalierUSD()
         {
             try
@@ -291,6 +356,7 @@ namespace Amani_Cash_Manager
                 return 0;
             }
         }
+
         private decimal TotalPretsJournalierUSD()
         {
             try
@@ -346,6 +412,7 @@ namespace Amani_Cash_Manager
                 return 0;
             }
         }
+
         private decimal RemboursementJournalierUSD()
         {
             try
@@ -372,8 +439,60 @@ namespace Amani_Cash_Manager
                 MessageBox.Show(ex.Message);
                 return 0;
             }
-        } 
-        #endregion
+        }
+
+        #endregion Total journalier
+
+        private void BtnAnnuler_Click(object sender, EventArgs e)
+        {
+            long idSelectionne = 0;
+            if (long.TryParse(dgvListe.CurrentRow.Cells[1].Value.ToString(),out idSelectionne))
+            {
+            if (idSelectionne != 0)
+            {
+                switch (GetTypeJournal())
+                {
+                    case TypeJournal.Depot:
+                        SupprimerTransaction(idSelectionne);
+                        break;
+
+                    case TypeJournal.Retrait:
+                        SupprimerTransaction(idSelectionne);
+                        break;
+
+                    case TypeJournal.Pret:
+                        SupprimerPret(idSelectionne);
+                        break;
+
+                    case TypeJournal.Remboursement:
+                        SupprimerRemboursement(idSelectionne);
+                        break;
+
+                    default:
+                        MessageBox.Show("Annulation Impossible", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                }
+                CustomizeDesign(); 
+            }
+            else
+            {
+                MessageBox.Show("Numéro Id est non valide", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            }
+            else
+            {
+                MessageBox.Show("Numéro Id est non valide", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvListe_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            BtnAnnuler.Enabled = true;
+        }
+
+        private void dgvListe_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            BtnAnnuler.Enabled = true;
+        }
     }
-    
 }

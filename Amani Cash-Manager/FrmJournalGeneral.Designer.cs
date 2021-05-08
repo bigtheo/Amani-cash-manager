@@ -38,6 +38,7 @@
             this.dtp_Date = new System.Windows.Forms.DateTimePicker();
             this.lblTititreJournal = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnAnnuler = new System.Windows.Forms.Button();
             this.BtnImprimer = new System.Windows.Forms.Button();
             this.dgvListe = new System.Windows.Forms.DataGridView();
             this.panelLogo.SuspendLayout();
@@ -91,12 +92,32 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel1.Controls.Add(this.BtnAnnuler);
             this.panel1.Controls.Add(this.BtnImprimer);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 456);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(875, 63);
             this.panel1.TabIndex = 6;
+            // 
+            // BtnAnnuler
+            // 
+            this.BtnAnnuler.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnAnnuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(10)))), ((int)(((byte)(150)))));
+            this.BtnAnnuler.Enabled = false;
+            this.BtnAnnuler.FlatAppearance.BorderSize = 0;
+            this.BtnAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAnnuler.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAnnuler.ForeColor = System.Drawing.Color.White;
+            this.BtnAnnuler.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAnnuler.Location = new System.Drawing.Point(440, 16);
+            this.BtnAnnuler.Name = "BtnAnnuler";
+            this.BtnAnnuler.Size = new System.Drawing.Size(101, 30);
+            this.BtnAnnuler.TabIndex = 7;
+            this.BtnAnnuler.Text = "Annuler";
+            this.BtnAnnuler.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnAnnuler.UseVisualStyleBackColor = false;
+            this.BtnAnnuler.Click += new System.EventHandler(this.BtnAnnuler_Click);
             // 
             // BtnImprimer
             // 
@@ -107,7 +128,7 @@
             this.BtnImprimer.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnImprimer.ForeColor = System.Drawing.Color.White;
             this.BtnImprimer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnImprimer.Location = new System.Drawing.Point(387, 16);
+            this.BtnImprimer.Location = new System.Drawing.Point(333, 16);
             this.BtnImprimer.Name = "BtnImprimer";
             this.BtnImprimer.Size = new System.Drawing.Size(101, 30);
             this.BtnImprimer.TabIndex = 6;
@@ -159,6 +180,8 @@
             this.dgvListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListe.Size = new System.Drawing.Size(875, 393);
             this.dgvListe.TabIndex = 12;
+            this.dgvListe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListe_CellClick);
+            this.dgvListe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListe_CellContentClick);
             // 
             // FrmJournalGeneral
             // 
@@ -191,5 +214,6 @@
         private System.Windows.Forms.DateTimePicker dtp_Date;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnImprimer;
+        private System.Windows.Forms.Button BtnAnnuler;
     }
 }
