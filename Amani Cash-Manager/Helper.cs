@@ -158,7 +158,7 @@ namespace Amani_Cash_Manager
 
             string entite = $"CAISSE D'EPARGNE\n{GetNomEntite()}";
             string Adresse = AdresseEntite;
-            string dateJour = $"Fait le {DateTime.Now.ToString("dddd, dd MMMM yyyy")}";
+            string dateJour = $"Fait le {DateTime.Now:dddd, dd MMMM yyyy à HH:mm}";
             Paragraph p_entete = new Paragraph(entite, police)
             {
                 Alignment = Element.ALIGN_CENTER
@@ -172,7 +172,7 @@ namespace Amani_Cash_Manager
             {
                 Alignment = Element.ALIGN_CENTER
             };
-            iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.COURIER, 12,0,BaseColor.MAGENTA);
+            Font font = FontFactory.GetFont("TIMES NEW ROMAN", 10, 1, new BaseColor(31, 50, 64));
 
             Paragraph P_date_jour = new Paragraph(dateJour, font)
             {
