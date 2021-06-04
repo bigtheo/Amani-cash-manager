@@ -172,7 +172,11 @@ namespace Amani_Cash_Manager
             {
                 Alignment = Element.ALIGN_CENTER
             };
+<<<<<<< Updated upstream
             iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.COURIER, 12,0,BaseColor.MAGENTA);
+=======
+            iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.COURIER, 1,0,BaseColor.MAGENTA);
+>>>>>>> Stashed changes
 
             Paragraph P_date_jour = new Paragraph(dateJour, font)
             {
