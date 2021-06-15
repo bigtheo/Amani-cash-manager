@@ -43,14 +43,28 @@ namespace Amani_Cash_Manager
         {
             Password = txtPassword.Text;
             UserName = txtUserName.Text;
+
             if (Connexion.Ouvrir())
             {
-                this.Hide();
-                new FrmAccueil().ShowDialog();
+                
+                if (Connexion.IsAmanistrator())
+                {
+                    new FrmAccueil().ShowDialog();
+                    this.Hide();
+                }
+                else
+                if (Connexion.IsUser())
+                {
+                    new FrmDepot();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("username/password incorrect","erreur",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
                
             }
-            //txtPassword.Clear();
-            //  txtUserName.Clear();
+            
 
         }
 
