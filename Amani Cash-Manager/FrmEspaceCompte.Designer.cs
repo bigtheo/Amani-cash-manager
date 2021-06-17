@@ -124,9 +124,9 @@
             0});
             this.nupSoldeDuCompte.Location = new System.Drawing.Point(428, 282);
             this.nupSoldeDuCompte.Maximum = new decimal(new int[] {
-            5000000,
-            0,
-            0,
+            -1316487168,
+            -1243369706,
+            2,
             0});
             this.nupSoldeDuCompte.Name = "nupSoldeDuCompte";
             this.nupSoldeDuCompte.Size = new System.Drawing.Size(203, 23);

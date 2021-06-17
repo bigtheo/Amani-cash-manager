@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPret));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.BtnFermer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,9 +46,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.BtnEnregistrer = new System.Windows.Forms.Button();
             this.panelInformationDernierPret = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.DgvListe = new System.Windows.Forms.DataGridView();
             this.lblMessage = new System.Windows.Forms.Label();
+            this.DgvListe = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtNumerDuCompte = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
             this.txtNoms = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
             this.panelLogo.SuspendLayout();
@@ -103,9 +103,9 @@
             this.nupTaux.Font = new System.Drawing.Font("Nova Slim", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nupTaux.Location = new System.Drawing.Point(453, 273);
             this.nupTaux.Maximum = new decimal(new int[] {
-            5000000,
-            0,
-            0,
+            1495269376,
+            217081053,
+            271,
             0});
             this.nupTaux.Name = "nupTaux";
             this.nupTaux.Size = new System.Drawing.Size(171, 23);
@@ -139,9 +139,9 @@
             0});
             this.nupMontantApreter.Location = new System.Drawing.Point(453, 242);
             this.nupMontantApreter.Maximum = new decimal(new int[] {
-            5000000,
-            0,
-            0,
+            1495269376,
+            217081053,
+            271,
             0});
             this.nupMontantApreter.Name = "nupMontantApreter";
             this.nupMontantApreter.Size = new System.Drawing.Size(171, 23);
@@ -205,9 +205,9 @@
             0});
             this.nupMontantArembourser.Location = new System.Drawing.Point(453, 302);
             this.nupMontantArembourser.Maximum = new decimal(new int[] {
-            5000000,
-            0,
-            0,
+            620756992,
+            -1962278748,
+            271050,
             0});
             this.nupMontantArembourser.Name = "nupMontantArembourser";
             this.nupMontantArembourser.Size = new System.Drawing.Size(171, 23);
@@ -247,16 +247,17 @@
             this.panelInformationDernierPret.Size = new System.Drawing.Size(636, 73);
             this.panelInformationDernierPret.TabIndex = 59;
             // 
-            // label6
+            // lblMessage
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(114)))), ((int)(((byte)(116)))));
-            this.label6.Location = new System.Drawing.Point(3, 440);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(277, 22);
-            this.label6.TabIndex = 60;
-            this.label6.Text = "Information sur le dernier prêt";
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.Image = ((System.Drawing.Image)(resources.GetObject("lblMessage.Image")));
+            this.lblMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMessage.Location = new System.Drawing.Point(189, 27);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(230, 13);
+            this.lblMessage.TabIndex = 1;
+            this.lblMessage.Text = "      Ce client n\'a pas un emprunt en souffrance ";
+            this.lblMessage.Visible = false;
             // 
             // DgvListe
             // 
@@ -270,43 +271,42 @@
             this.DgvListe.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.DgvListe.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.DgvListe.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvListe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvListe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DgvListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvListe.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvListe.DefaultCellStyle = dataGridViewCellStyle5;
             this.DgvListe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvListe.GridColor = System.Drawing.Color.AliceBlue;
             this.DgvListe.Location = new System.Drawing.Point(0, 0);
             this.DgvListe.Name = "DgvListe";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DgvListe.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DgvListe.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.DgvListe.Size = new System.Drawing.Size(636, 73);
             this.DgvListe.TabIndex = 0;
             // 
-            // lblMessage
+            // label6
             // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.Image = ((System.Drawing.Image)(resources.GetObject("lblMessage.Image")));
-            this.lblMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblMessage.Location = new System.Drawing.Point(189, 27);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(230, 13);
-            this.lblMessage.TabIndex = 1;
-            this.lblMessage.Text = "      Ce client n\'a pas un emprunt en souffrance ";
-            this.lblMessage.Visible = false;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(114)))), ((int)(((byte)(116)))));
+            this.label6.Location = new System.Drawing.Point(3, 440);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(277, 22);
+            this.label6.TabIndex = 60;
+            this.label6.Text = "Information sur le dernier prêt";
             // 
             // txtNumerDuCompte
             // 

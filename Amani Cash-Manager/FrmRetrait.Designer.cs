@@ -140,8 +140,8 @@
             0});
             this.nupSoldeDuCompte.Location = new System.Drawing.Point(421, 259);
             this.nupSoldeDuCompte.Maximum = new decimal(new int[] {
-            5000000,
-            0,
+            784662528,
+            11641532,
             0,
             0});
             this.nupSoldeDuCompte.Name = "nupSoldeDuCompte";
@@ -181,8 +181,8 @@
             0});
             this.nupMontantAretirer.Location = new System.Drawing.Point(421, 288);
             this.nupMontantAretirer.Maximum = new decimal(new int[] {
-            5000000,
-            0,
+            1382236160,
+            116415,
             0,
             0});
             this.nupMontantAretirer.Name = "nupMontantAretirer";

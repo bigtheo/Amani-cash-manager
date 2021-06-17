@@ -109,9 +109,9 @@
             0});
             this.nupTotalARembourse.Location = new System.Drawing.Point(462, 268);
             this.nupTotalARembourse.Maximum = new decimal(new int[] {
-            5000000,
-            0,
-            0,
+            620756992,
+            -1962278748,
+            271050,
             0});
             this.nupTotalARembourse.Name = "nupTotalARembourse";
             this.nupTotalARembourse.Size = new System.Drawing.Size(137, 23);
@@ -141,9 +141,9 @@
             0});
             this.nupTaux.Location = new System.Drawing.Point(462, 239);
             this.nupTaux.Maximum = new decimal(new int[] {
-            5000000,
-            0,
-            0,
+            620756992,
+            -1962278748,
+            271050,
             0});
             this.nupTaux.Name = "nupTaux";
             this.nupTaux.Size = new System.Drawing.Size(137, 23);
@@ -173,9 +173,9 @@
             0});
             this.nupMontantPrete.Location = new System.Drawing.Point(462, 208);
             this.nupMontantPrete.Maximum = new decimal(new int[] {
-            5000000,
-            0,
-            0,
+            620756992,
+            -1962278748,
+            271050,
             0});
             this.nupMontantPrete.Name = "nupMontantPrete";
             this.nupMontantPrete.Size = new System.Drawing.Size(137, 23);
@@ -225,9 +225,9 @@
             0});
             this.nupTotalRembourse.Location = new System.Drawing.Point(462, 297);
             this.nupTotalRembourse.Maximum = new decimal(new int[] {
-            5000000,
-            0,
-            0,
+            620756992,
+            -1962278748,
+            271050,
             0});
             this.nupTotalRembourse.Name = "nupTotalRembourse";
             this.nupTotalRembourse.Size = new System.Drawing.Size(137, 23);
@@ -268,9 +268,9 @@
             0});
             this.nupResteArembourser.Location = new System.Drawing.Point(462, 326);
             this.nupResteArembourser.Maximum = new decimal(new int[] {
-            5000000,
-            0,
-            0,
+            620756992,
+            -1962278748,
+            271050,
             0});
             this.nupResteArembourser.Name = "nupResteArembourser";
             this.nupResteArembourser.Size = new System.Drawing.Size(137, 23);
@@ -299,9 +299,9 @@
             0});
             this.nupMontant.Location = new System.Drawing.Point(462, 355);
             this.nupMontant.Maximum = new decimal(new int[] {
-            5000000,
-            0,
-            0,
+            620756992,
+            -1962278748,
+            271050,
             0});
             this.nupMontant.Name = "nupMontant";
             this.nupMontant.Size = new System.Drawing.Size(137, 23);
