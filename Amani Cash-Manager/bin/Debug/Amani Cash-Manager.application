@@ -15,6 +15,9 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
 <<<<<<< HEAD
+        <dsig:DigestValue>0FVtyaJcFGyy/Ppe8rTFgItWha7Mb9n7WFGA2K5k17E=</dsig:DigestValue>
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
         <dsig:DigestValue>ZKytZj5iZXMADA75fhQsd1vOz32TUGXjkaEywFucGa8=</dsig:DigestValue>
 =======
@@ -23,6 +26,7 @@
 =======
         <dsig:DigestValue>7TiZvxx5Rx4NQdxmp/LJ9YjARdlAE/6PmVpAVkZTVLg=</dsig:DigestValue>
 >>>>>>> 345ff6fece2af7666391fcaa4cf62ebdb957b6ee
+>>>>>>> e850b6c682444c701b6174586eed2b073133ed37
       </hash>
     </dependentAssembly>
   </dependency>
