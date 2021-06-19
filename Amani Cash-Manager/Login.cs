@@ -46,9 +46,8 @@ namespace Amani_Cash_Manager
 
             if (Connexion.Ouvrir())
             {
-                new FrmAccueil().ShowDialog();
                 this.Hide();
-
+                new FrmAccueil().ShowDialog();  
             }
             /*  connexion reseu
             if (Connexion.Ouvrir())

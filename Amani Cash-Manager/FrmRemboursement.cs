@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Amani_Cash_Manager
 {
@@ -80,6 +81,7 @@ namespace Amani_Cash_Manager
 
         private void BtnEnregistrer_Click(object sender, EventArgs e)
         {
+
             this.Cursor = Cursors.WaitCursor; 
             if (MontantArembourserEstSuperieurUN_Trantieme())
             {
@@ -138,7 +140,8 @@ namespace Amani_Cash_Manager
 
         private bool MontantArembourserEstSuperieurUN_Trantieme()
         {
-            return (nupMontant.Value >= (nupTotalARembourse.Value) / 30) || (nupResteArembourser.Value < (nupTotalARembourse.Value) / 30);
+            //  return (nupMontant.Value >= (nupTotalARembourse.Value) / 30) || (nupResteArembourser.Value < (nupTotalARembourse.Value) / 30);
+            return true;
         }
         #endregion
 
