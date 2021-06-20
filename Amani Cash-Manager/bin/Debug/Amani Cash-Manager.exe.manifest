@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Amani Cash-Manager.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Amani Cash-Manager.exe" version="1.0.0.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="icons8_cash_register.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -86,19 +86,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-<<<<<<< HEAD
         <dsig:DigestValue>C7Y408TU7L6g1LGyrCuPttGROxVNwmQtMJTEQNUlYiI=</dsig:DigestValue>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <dsig:DigestValue>JCpUi5X/f3uTInDGtdy6I1mL2fvTnrf9Se/l0M9d5p8=</dsig:DigestValue>
-=======
-        <dsig:DigestValue>2oJuC4ps4EguLFVbDy8LIg7bSSXmSfGnvnptdoyouKY=</dsig:DigestValue>
->>>>>>> 345ff6fece2af7666391fcaa4cf62ebdb957b6ee
-=======
-        <dsig:DigestValue>2oJuC4ps4EguLFVbDy8LIg7bSSXmSfGnvnptdoyouKY=</dsig:DigestValue>
->>>>>>> 345ff6fece2af7666391fcaa4cf62ebdb957b6ee
->>>>>>> e850b6c682444c701b6174586eed2b073133ed37
       </hash>
     </dependentAssembly>
   </dependency>
