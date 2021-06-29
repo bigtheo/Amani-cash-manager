@@ -83,14 +83,33 @@ namespace Amani_Cash_Manager
         public static long NumeroCompte { get; set; }
         private void BtnImprimer_Click(object sender, EventArgs e)
         {
+            if (dgvListe.Rows.Count > 0)
+            {
+                if (Ck_remboursement.Checked)
+                {
+                    ImprimerHistoriqueRemboursement();
+                }
+                else
+                {
+                    ImprimerHistoriqueCompte();
+                }
+            }
+            else
+            {
+                MessageBox.Show("La grille ne contient aucune ligne","information",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+            }
+            
+        }
+        private void ImprimerHistoriqueCompte()
+        {
             this.Cursor = Cursors.WaitCursor;
             if (int.TryParse(txtNumeroDuCompte.Text, out int valeur))
-            {          
+            {
                 Compte compte = new CompteEpargne();
 
                 if (compte.TypeDuCompte == Compte.TypeCompte.Epargne)
                 {
-                   compte = new CompteEpargne(NumeroCompte)
+                    compte = new CompteEpargne(NumeroCompte)
                     {
                         NumeroDuCompte = valeur
                     };
@@ -99,7 +118,7 @@ namespace Amani_Cash_Manager
                 {
                     compte = new CompteCourant() { NumeroDuCompte = valeur };
                 }
-                    
+
                 //création du rapport...
                 Bordereau bordereau = new Bordereau()
                 {
@@ -113,6 +132,39 @@ namespace Amani_Cash_Manager
             }
             this.Cursor = Cursors.Default;
         }
+        private void ImprimerHistoriqueRemboursement()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            if (int.TryParse(txtNumeroDuCompte.Text, out int valeur))
+            {
+                Compte compte = new CompteEpargne();
+
+                if (compte.TypeDuCompte == Compte.TypeCompte.Epargne)
+                {
+                    compte = new CompteEpargne(NumeroCompte)
+                    {
+                        NumeroDuCompte = valeur
+                    };
+                }
+                else
+                {
+                    compte = new CompteCourant() { NumeroDuCompte = valeur };
+                }
+
+                //création du rapport...
+                Bordereau bordereau = new Bordereau()
+                {
+                    Titre = $"{lblTitre.Text}-Remoursement-{compte.GetInfoProprietaire()} "
+                };
+                bordereau.CreerListeHistoriqueRemboursement(dgvListe);
+            }
+            else
+            {
+                MessageBox.Show("Le format du numero de compte n'est pas valide", "Information", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); ;
+            }
+            this.Cursor = Cursors.Default;
+        }
+
 
         private void Ck_remboursement_CheckedChanged(object sender, EventArgs e)
         {

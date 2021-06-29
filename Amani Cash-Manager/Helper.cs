@@ -134,8 +134,8 @@ namespace Amani_Cash_Manager
                 Connexion.Ouvrir();
                 cmd.Connection = Connexion.Con;
                 cmd.CommandText = "select "+
- "r.Id,r.dateRemboursement 'Date et Heure',concat_ws(' ',r.montant,p.devise) Montant,r.pretId 'N° Prêt' from remboursement r " +
- "INNER JOIN pret p on p.id = r.PretId where p.compteId = @p_compteId; ";
+                "r.Id,r.dateRemboursement 'Date et Heure',concat_ws(' ',r.montant,p.devise) Montant,r.pretId 'N° Prêt' from remboursement r " +
+                "INNER JOIN pret p on p.id = r.PretId where p.compteId = @p_compteId; ";
 
                 MySqlParameter p_CompteId = new MySqlParameter("@p_compteId", MySqlDbType.Int64)
                 {

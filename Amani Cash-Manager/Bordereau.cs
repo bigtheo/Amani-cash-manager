@@ -449,5 +449,80 @@ namespace Amani_Cash_Manager
             doc.Close();
             new FrmApercuAvantImpression().ShowDialog();
         }
+
+        public void CreerListeHistoriqueRemboursement(DataGridView dataGridView)
+        {
+            #region Création du document
+
+            Document doc = new Document();
+
+            try
+            {
+                string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "bordereau.pdf");
+                FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+                PdfWriter.GetInstance(doc, fs);
+                doc.Open(); //ouverture du document pour y écrire
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            #endregion Création du document
+
+            #region les polices utilisées
+
+            Font police_entete = FontFactory.GetFont("TIMES NEW ROMAN", 13);
+            police_entete.SetStyle(1);
+
+            #endregion les polices utilisées
+
+            Paragraph p_Titre = new Paragraph(this.Titre)
+            {
+                Alignment = 1
+            };
+
+            #region tableau principle
+
+            PdfPTable table = new PdfPTable(4)
+            {
+                WidthPercentage = 80,
+            };
+            table.SetWidths(new float[] { 10, 20, 15, 16 });
+
+            PdfPCell cell_transactionId = new PdfPCell(new Phrase("Trans. ID", police_entete));
+            PdfPCell cell_heure = new PdfPCell(new Phrase("Date et heure", police_entete));
+            PdfPCell cell_montant = new PdfPCell(new Phrase("Montant", police_entete));
+            PdfPCell cell_pretId = new PdfPCell(new Phrase("N° du prêt", police_entete));
+
+            table.AddCell(cell_transactionId);
+            table.AddCell(cell_heure);
+            table.AddCell(cell_montant);
+            table.AddCell(cell_pretId);
+          
+
+            foreach (DataGridViewRow data in dataGridView.Rows)
+            {
+                table.AddCell(data.Cells[0].Value.ToString());
+                table.AddCell(data.Cells[1].Value.ToString());
+                table.AddCell(data.Cells[2].Value.ToString());
+                table.AddCell(data.Cells[3].Value.ToString());
+            }
+
+            Paragraph passerLigne = new Paragraph(Environment.NewLine);
+
+            #endregion tableau principle
+
+            /*ajaout de l'en-tête du bordereau */
+            Helper.AddEntete(doc);
+            doc.Add(p_Titre);
+
+            doc.Add(passerLigne);
+            doc.Add(table);
+
+            //on ferme le document après écriture
+            doc.Close();
+            new FrmApercuAvantImpression().ShowDialog();
+        }
     }
 }
