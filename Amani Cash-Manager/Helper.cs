@@ -126,6 +126,37 @@ namespace Amani_Cash_Manager
             }
         }
 
+        
+        public static DataTable   AfficherHistoriqueRemboursement(long numeroDuCompte)
+          {
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                Connexion.Ouvrir();
+                cmd.Connection = Connexion.Con;
+                cmd.CommandText = "select "+
+ "r.Id,r.dateRemboursement 'Date et Heure',concat_ws(' ',r.montant,p.devise) Montant,r.pretId 'N° Prêt' from remboursement r " +
+ "INNER JOIN pret p on p.id = r.PretId where p.compteId = @p_compteId; ";
+
+                MySqlParameter p_CompteId = new MySqlParameter("@p_compteId", MySqlDbType.Int64)
+                {
+                    Value = numeroDuCompte
+                };
+                cmd.Parameters.Add(p_CompteId);
+                CompteCourant compte = new CompteCourant
+                {
+                    NumeroDuCompte = (int)numeroDuCompte
+                };
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+
+                    return table;
+                }
+            }
+        }
+               
         public static string GetDernerNumeroOperation(long numeroCompte)
         {
             using (MySqlCommand cmd = new MySqlCommand())

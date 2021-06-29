@@ -40,6 +40,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnImprimer = new System.Windows.Forms.Button();
             this.BtnDetails = new System.Windows.Forms.Button();
+            this.Ck_remboursement = new System.Windows.Forms.CheckBox();
             this.txtNumeroDuCompte = new LA_CONFIDENCE_CASH_MANAGER.PlaceholderTextBox();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListe)).BeginInit();
@@ -178,6 +179,18 @@
             this.BtnDetails.UseVisualStyleBackColor = false;
             this.BtnDetails.Click += new System.EventHandler(this.BtnDetails_Click);
             // 
+            // Ck_remboursement
+            // 
+            this.Ck_remboursement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Ck_remboursement.AutoSize = true;
+            this.Ck_remboursement.Location = new System.Drawing.Point(464, 123);
+            this.Ck_remboursement.Name = "Ck_remboursement";
+            this.Ck_remboursement.Size = new System.Drawing.Size(103, 17);
+            this.Ck_remboursement.TabIndex = 13;
+            this.Ck_remboursement.Text = "Remboursement";
+            this.Ck_remboursement.UseVisualStyleBackColor = true;
+            this.Ck_remboursement.CheckedChanged += new System.EventHandler(this.Ck_remboursement_CheckedChanged);
+            // 
             // txtNumeroDuCompte
             // 
             this.txtNumeroDuCompte.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -187,9 +200,9 @@
             this.txtNumeroDuCompte.Name = "txtNumeroDuCompte";
             this.txtNumeroDuCompte.PlaceholderText = "N° du compte client";
             this.txtNumeroDuCompte.PlaceholderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtNumeroDuCompte.Size = new System.Drawing.Size(549, 27);
+            this.txtNumeroDuCompte.Size = new System.Drawing.Size(429, 27);
             this.txtNumeroDuCompte.TabIndex = 10;
-            this.txtNumeroDuCompte.TextChanged += new System.EventHandler(this.TxtNumeroDuCompte_TextChanged);
+            this.txtNumeroDuCompte.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumeroDuCompte_KeyDown);
             // 
             // FrmHistotique
             // 
@@ -197,6 +210,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(606, 503);
+            this.Controls.Add(this.Ck_remboursement);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvListe);
             this.Controls.Add(this.txtNumeroDuCompte);
@@ -224,5 +238,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnDetails;
         private System.Windows.Forms.Button BtnImprimer;
+        private System.Windows.Forms.CheckBox Ck_remboursement;
     }
 }
