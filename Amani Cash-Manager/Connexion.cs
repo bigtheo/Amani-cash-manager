@@ -20,10 +20,10 @@ namespace Amani_Cash_Manager
         //ouvre la connexion au seveur des données
         public static bool Ouvrir()
         {
-            Server = "localhost";
-            MotDePasse = Login.Password;
-            NomUtilisateur = Login.UserName;
-            chaineDeConnection = $" persistsecurityinfo=True;server={Server};username={NomUtilisateur};password={MotDePasse};database=AmaniDB";
+            Server = "schooltest.cw49j99hvmua.us-east-2.rds.amazonaws.com";
+            MotDePasse = "19930715";//Login.Password;
+            NomUtilisateur ="kapapa"; //Login.UserName;
+            chaineDeConnection = $" persistsecurityinfo=True;server={Server};username={NomUtilisateur};password={MotDePasse};database=AmaniDb";
             Con = new MySqlConnection(chaineDeConnection);  
                 try
                 {

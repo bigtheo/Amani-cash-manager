@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -417,8 +418,11 @@ namespace Amani_Cash_Manager
 
         #endregion
 
-        private void FrmStaistiques_Load(object sender, EventArgs e)
+        private  void ChargerStatistiques()
         {
+
+           
+
             lbl_total_client.Text = NombreTotalClient().ToString();
             lbl_nombre_total_compteCDF.Text = NombreTotalCompteCDF().ToString();
             lbl_nombre_total_compteUSD.Text = NombreTotalCompteUSD().ToString();
@@ -428,9 +432,23 @@ namespace Amani_Cash_Manager
             lbl_total_debit.Text = NombreTotalTransctionDebit().ToString();
             lbl_Solde_cdf.Text = SoldeTotalCDF().ToString();
             lbl_Solde_usd.Text = SoldeTotalUSD().ToString();
-           
+
             lbl_reste_a_payercdf.Text = TotalResteApayerCDF().ToString();
             lbl_reste_a_payerusd.Text = TotalResteApayerUSD().ToString();
+
+            
+        }
+        private void FrmStaistiques_Load(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            ThreadStart threadStart = new ThreadStart(ChargerStatistiques);
+
+            Thread childThread = new Thread(threadStart);
+
+            childThread.Start();
+
+            this.Cursor = Cursors.Default;
+
         }
     }
 }
